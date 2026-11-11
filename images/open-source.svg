@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" fill="none">
+ <rect width="900" height="900" fill="#e9e2cf"/>
+ <path d="M0 0h900v900H0z" stroke="#102b4c" stroke-width="2"/>
+ <path d="M110 170h680v560H110z" fill="#f7f3e8" stroke="#102b4c" stroke-width="4"/>
+ <path d="m290 330-110 120 110 120M610 330l110 120-110 120M520 280 380 620" stroke="#102b4c" stroke-width="23" stroke-linecap="square" stroke-linejoin="miter"/>
+ <path d="M110 170h680" stroke="#d6b33f" stroke-width="15"/>
+ <text x="150" y="240" fill="#102b4c" font-family="monospace" font-size="19" letter-spacing="4">OPEN SOURCE / COMMUNITY</text>
+ <text x="150" y="680" fill="#a88727" font-family="Georgia,serif" font-size="50">Make it together.</text>
+ <text x="150" y="780" fill="#102b4c" font-family="monospace" font-size="16" letter-spacing="3">DEMO ARTWORK / 03</text>
+</svg>
