@@ -1,0 +1,1174 @@
+/* ==========================================================================
+   FCIT WORKING GUILDS — EDITORIAL ENRICHMENT STYLING
+   Theme: Experimental Heritage Editorial & Academic Rigor
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   0. EDITORIAL INTRO CONTROLS
+   -------------------------------------------------------------------------- */
+.guild-intro-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(16, 43, 76, 0.1);
+}
+
+.guild-batch-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--guild-burgundy, #8D1022);
+  border: 1px solid var(--guild-burgundy, #8D1022);
+  border-radius: 2px;
+  padding: 8px 16px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.guild-batch-toggle-btn:hover {
+  background: var(--guild-burgundy, #8D1022);
+  color: #FFFDF4;
+}
+
+.guild-intro-meta-note {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: #7D735E;
+}
+
+/* --------------------------------------------------------------------------
+   1. EXPANDABLE SPECIFICATION BLUEPRINT CONTAINER
+   -------------------------------------------------------------------------- */
+.guild-blueprint-drawer {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-top: clamp(24px, 3.5vw, 44px);
+  padding-top: clamp(24px, 3.5vw, 40px);
+  border-top: 1px solid rgba(16, 43, 76, 0.12);
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.guild-blueprint-drawer.is-collapsed {
+  display: none;
+}
+
+/* Quick jump navigation strip inside the expanded blueprint */
+.guild-blueprint-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  align-items: center;
+  padding: 10px 16px;
+  background: rgba(16, 43, 76, 0.035);
+  border: 1px solid rgba(214, 173, 84, 0.25);
+  border-radius: 2px;
+  margin-bottom: clamp(28px, 4vw, 48px);
+}
+
+.blueprint-nav-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  color: var(--guild-burgundy, #8D1022);
+  margin-right: 8px;
+}
+
+.blueprint-nav-link {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--guild-navy, #071827);
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.blueprint-nav-link:hover {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(214, 173, 84, 0.4);
+  color: var(--guild-burgundy, #8D1022);
+}
+
+/* Toggle Specification Button in Hero View */
+.guild-explore-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 22px;
+  padding: 12px 24px;
+  background: var(--guild-navy, #071827);
+  color: #FFFDF4;
+  border: 1px solid rgba(214, 173, 84, 0.4);
+  border-radius: 2px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(7, 24, 39, 0.12);
+}
+
+.guild-explore-toggle-btn:hover {
+  background: var(--guild-burgundy, #8D1022);
+  border-color: var(--guild-gold, #D6AD54);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(141, 16, 34, 0.22);
+}
+
+.guild-explore-toggle-btn .toggle-icon {
+  display: inline-block;
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+}
+
+.guild-explore-toggle-btn.is-active .toggle-icon {
+  transform: rotate(180deg);
+}
+
+/* Initial Domains Pills in Hero View */
+.guild-hero-domains-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  margin: 18px 0 6px;
+}
+
+.guild-hero-domain-pill {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--guild-navy, #071827);
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(16, 43, 76, 0.14);
+  padding: 4px 10px;
+  border-radius: 2px;
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   2. COMMON MODULE HEADERS
+   -------------------------------------------------------------------------- */
+.guild-module-header {
+  margin-bottom: clamp(20px, 3vw, 32px);
+}
+
+.guild-module-eyebrow {
+  display: block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--guild-gold, #D6AD54);
+  margin-bottom: 6px;
+}
+
+.guild-module-title {
+  margin: 0 0 10px;
+  font-family: "GFS Didot", "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--guild-navy, #071827);
+  line-height: 1.15;
+}
+
+.guild-module-desc {
+  margin: 0;
+  font-family: "Alegreya Sans", "IBM Plex Sans", sans-serif;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--guild-muted, #565045);
+  max-width: 760px;
+}
+
+/* --------------------------------------------------------------------------
+   3. MODULE A: CORE TECHNICAL DOMAINS (Interactive Tabbed Grid)
+   -------------------------------------------------------------------------- */
+.guild-domains-module {
+  margin-bottom: clamp(48px, 6vw, 72px);
+}
+
+.guild-domains-grid {
+  display: grid;
+  grid-template-columns: minmax(300px, 1.1fr) minmax(320px, 1fr);
+  gap: clamp(20px, 3vw, 36px);
+  align-items: start;
+}
+
+.guild-domains-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.guild-domain-card {
+  text-align: left;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(16, 43, 76, 0.12);
+  border-radius: 2px;
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.guild-domain-card:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(214, 173, 84, 0.45);
+  transform: translateX(4px);
+}
+
+.guild-domain-card.is-selected {
+  background: #FFFDF7;
+  border-color: var(--guild-burgundy, #8D1022);
+  border-left: 4px solid var(--guild-burgundy, #8D1022);
+  box-shadow: 0 6px 18px rgba(7, 24, 39, 0.06);
+}
+
+.guild-domain-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.guild-domain-badge {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  color: var(--guild-burgundy, #8D1022);
+  text-transform: uppercase;
+}
+
+.guild-domain-selector-indicator {
+  font-size: 0.75rem;
+  color: var(--guild-gold, #D6AD54);
+}
+
+.guild-domain-name {
+  margin: 0 0 4px;
+  font-family: "GFS Didot", Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--guild-navy, #071827);
+  letter-spacing: -0.01em;
+}
+
+.guild-domain-snip {
+  margin: 0;
+  font-family: "Alegreya Sans", sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: #635E54;
+}
+
+/* Domain Detail Inspection Card */
+.guild-domain-detail-card {
+  background: #FFFDF8;
+  border: 1px solid rgba(214, 173, 84, 0.35);
+  border-radius: 3px;
+  padding: clamp(22px, 3.2vw, 36px);
+  box-shadow: 0 12px 32px rgba(7, 24, 39, 0.05);
+  position: sticky;
+  top: 96px;
+}
+
+.domain-detail-topline {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(16, 43, 76, 0.08);
+  margin-bottom: 18px;
+}
+
+.domain-detail-tag {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--guild-burgundy, #8D1022);
+}
+
+.domain-detail-domain-name {
+  font-family: "GFS Didot", Georgia, serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--guild-navy, #071827);
+  letter-spacing: -0.02em;
+}
+
+.domain-detail-summary {
+  font-family: "Alegreya Sans", sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #3D3932;
+  margin: 0 0 22px;
+}
+
+.domain-detail-block {
+  margin-bottom: 18px;
+}
+
+.domain-detail-label {
+  display: block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  color: #8C7B5D;
+  margin-bottom: 8px;
+}
+
+.domain-topics-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+}
+
+.domain-topic-chip {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  background: rgba(16, 43, 76, 0.05);
+  color: var(--guild-navy, #071827);
+  border: 1px solid rgba(16, 43, 76, 0.12);
+  padding: 4px 10px;
+  border-radius: 2px;
+  font-weight: 500;
+}
+
+.domain-relevance-text {
+  font-family: "Alegreya Sans", sans-serif;
+  font-size: 0.96rem;
+  line-height: 1.55;
+  color: #555047;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   4. MODULE B: TECHNOLOGY CONSTELLATION & TOOLCHAIN
+   -------------------------------------------------------------------------- */
+.guild-constellation-module {
+  margin-bottom: clamp(48px, 6vw, 72px);
+}
+
+.constellation-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+  margin-bottom: 24px;
+}
+
+.constellation-filter-btn {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(16, 43, 76, 0.14);
+  color: var(--guild-navy, #071827);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.constellation-filter-btn:hover {
+  background: #FFF;
+  border-color: var(--guild-gold, #D6AD54);
+}
+
+.constellation-filter-btn.is-active {
+  background: var(--guild-navy, #071827);
+  color: #FFFDF4;
+  border-color: var(--guild-navy, #071827);
+}
+
+.constellation-display-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(300px, 0.9fr);
+  gap: clamp(20px, 3vw, 32px);
+  align-items: start;
+}
+
+.constellation-nodes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 14px;
+}
+
+.constellation-node-card {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(16, 43, 76, 0.12);
+  border-radius: 2px;
+  padding: 16px 18px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  outline: none;
+}
+
+.constellation-node-card:hover,
+.constellation-node-card:focus-visible,
+.constellation-node-card.is-hovered {
+  background: #FFFDF8;
+  border-color: var(--guild-gold, #D6AD54);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(214, 173, 84, 0.15), 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.node-card-topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.node-cat-badge {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7D725C;
+}
+
+.node-level-pill {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  color: var(--guild-burgundy, #8D1022);
+  background: rgba(141, 16, 34, 0.08);
+  padding: 2px 6px;
+  border-radius: 2px;
+  font-weight: 700;
+}
+
+.node-tech-name {
+  margin: 0 0 6px;
+  font-family: "GFS Didot", Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--guild-navy, #071827);
+  letter-spacing: -0.01em;
+}
+
+.node-tech-snip {
+  margin: 0;
+  font-family: "Alegreya Sans", sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: #5D574B;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.node-glow-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--guild-gold, #D6AD54);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.constellation-node-card:hover .node-glow-indicator,
+.constellation-node-card.is-hovered .node-glow-indicator {
+  transform: scaleX(1);
+}
+
+/* Constellation Inspector Readout */
+.constellation-inspector-card {
+  background: #071827;
+  color: #FFFDF4;
+  border: 1px solid rgba(214, 173, 84, 0.35);
+  border-radius: 3px;
+  padding: clamp(22px, 3vw, 32px);
+  box-shadow: 0 16px 42px rgba(7, 24, 39, 0.22);
+  position: sticky;
+  top: 96px;
+}
+
+.inspector-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.inspector-eyebrow {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  color: var(--guild-gold, #D6AD54);
+}
+
+.inspector-badge {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: #E6D2A8;
+  background: rgba(214, 173, 84, 0.16);
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+
+.inspector-tech-name {
+  margin: 0 0 14px;
+  font-family: "GFS Didot", Georgia, serif;
+  font-size: 1.85rem;
+  font-weight: 400;
+  color: #FFFDF4;
+  letter-spacing: -0.02em;
+}
+
+.inspector-rule {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--guild-gold, #D6AD54) 0%, transparent 100%);
+  margin-bottom: 16px;
+}
+
+.inspector-desc {
+  font-family: "Alegreya Sans", sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #D3CEBF;
+  margin: 0 0 20px;
+}
+
+.inspector-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 12px;
+}
+
+.inspector-status-indicator {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: var(--guild-gold, #D6AD54);
+}
+
+/* --------------------------------------------------------------------------
+   5. MODULE C: "THE PEOPLE BUILDING THE GUILD" (Leadership Grid)
+   -------------------------------------------------------------------------- */
+.guild-leadership-module {
+  margin-bottom: clamp(48px, 6vw, 72px);
+}
+
+.guild-leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(20px, 3.2vw, 36px);
+}
+
+.guild-leader-card {
+  background: #FFFDF8;
+  border: 1px solid rgba(16, 43, 76, 0.14);
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(7, 24, 39, 0.04);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.guild-leader-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(214, 173, 84, 0.55);
+  box-shadow: 0 16px 36px rgba(7, 24, 39, 0.1);
+}
+
+.guild-leader-portrait-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3.4;
+  background: #0A1C33;
+  overflow: hidden;
+}
+
+.leader-portrait-frame {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.leader-portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  filter: grayscale(100%) contrast(110%);
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.guild-leader-card:hover .leader-portrait-img {
+  filter: grayscale(0%) contrast(102%);
+  transform: scale(1.03);
+}
+
+.leader-portrait-tint {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(7, 24, 39, 0.6) 0%, transparent 45%);
+  pointer-events: none;
+}
+
+.leader-crimson-accent-rule {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--guild-burgundy, #8D1022);
+}
+
+.guild-leader-info {
+  padding: clamp(18px, 2.6vw, 24px);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.leader-role-badge {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--guild-burgundy, #8D1022);
+  margin-bottom: 6px;
+}
+
+.leader-name {
+  margin: 0 0 10px;
+  font-family: "GFS Didot", "Cormorant Garamond", Georgia, serif;
+  font-size: 1.55rem;
+  font-weight: 400;
+  color: var(--guild-navy, #071827);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.leader-gold-divider {
+  width: 42px;
+  height: 1.5px;
+  background: var(--guild-gold, #D6AD54);
+  margin-bottom: 14px;
+}
+
+.leader-responsibility-block {
+  margin-bottom: 18px;
+  flex-grow: 1;
+}
+
+.responsibility-label {
+  display: block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  color: #8C7B5D;
+  margin-bottom: 4px;
+}
+
+.responsibility-text {
+  margin: 0;
+  font-family: "Alegreya Sans", sans-serif;
+  font-size: 0.94rem;
+  line-height: 1.5;
+  color: #4D483E;
+}
+
+.leader-actions {
+  padding-top: 12px;
+  border-top: 1px solid rgba(16, 43, 76, 0.08);
+}
+
+.leader-profile-link {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--guild-navy, #071827);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.leader-profile-link:hover {
+  color: var(--guild-burgundy, #8D1022);
+}
+
+.leader-profile-link .link-arrow {
+  transition: transform 0.2s ease;
+}
+
+.leader-profile-link:hover .link-arrow {
+  transform: translate(2px, -2px);
+}
+
+/* --------------------------------------------------------------------------
+   6. MODULE D: GUILD ACTIVITIES & RHYTHMS
+   -------------------------------------------------------------------------- */
+.guild-activities-module {
+  margin-bottom: clamp(48px, 6vw, 72px);
+}
+
+.guild-activities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(16px, 2.5vw, 24px);
+}
+
+.guild-activity-card {
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(16, 43, 76, 0.12);
+  border-radius: 2px;
+  padding: clamp(18px, 2.5vw, 24px);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s ease;
+}
+
+.guild-activity-card:hover {
+  background: #FFFDF8;
+  border-color: rgba(214, 173, 84, 0.45);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(7, 24, 39, 0.05);
+}
+
+.activity-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.activity-type-pill {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  color: var(--guild-burgundy, #8D1022);
+  background: rgba(141, 16, 34, 0.08);
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+
+.activity-cadence-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.64rem;
+  color: #7D725C;
+}
+
+.activity-title {
+  margin: 0 0 10px;
+  font-family: "GFS Didot", Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--guild-navy, #071827);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.activity-summary {
+  margin: 0 0 16px;
+  font-family: "Alegreya Sans", sans-serif;
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: #4F493E;
+  flex-grow: 1;
+}
+
+.activity-outcome-box {
+  background: rgba(16, 43, 76, 0.035);
+  border-left: 2px solid var(--guild-gold, #D6AD54);
+  padding: 8px 12px;
+  font-size: 0.85rem;
+}
+
+.outcome-label {
+  display: block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  color: var(--guild-burgundy, #8D1022);
+  margin-bottom: 2px;
+}
+
+.outcome-text {
+  font-family: "Alegreya Sans", sans-serif;
+  color: #48433A;
+  line-height: 1.4;
+}
+
+/* --------------------------------------------------------------------------
+   7. MODULE E: SELECTED PROJECTS SHOWCASE
+   -------------------------------------------------------------------------- */
+.guild-projects-module {
+  margin-bottom: clamp(48px, 6vw, 72px);
+}
+
+.guild-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: clamp(20px, 3.2vw, 36px);
+}
+
+.guild-project-card {
+  background: #FFFDF8;
+  border: 1px solid rgba(16, 43, 76, 0.14);
+  border-radius: 2px;
+  padding: clamp(22px, 3.2vw, 32px);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 20px rgba(7, 24, 39, 0.04);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.guild-project-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(214, 173, 84, 0.5);
+  box-shadow: 0 16px 36px rgba(7, 24, 39, 0.09);
+}
+
+.project-card-topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.project-category-badge {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  color: var(--guild-burgundy, #8D1022);
+}
+
+.project-status-pill {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: var(--guild-gold, #D6AD54);
+  background: rgba(214, 173, 84, 0.1);
+  padding: 2px 8px;
+  border-radius: 2px;
+  font-weight: 700;
+}
+
+.project-card-title {
+  margin: 0 0 4px;
+  font-family: "GFS Didot", "Cormorant Garamond", Georgia, serif;
+  font-size: 1.65rem;
+  font-weight: 400;
+  color: var(--guild-navy, #071827);
+  letter-spacing: -0.02em;
+}
+
+.project-card-subtitle {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  color: #7A6F5A;
+  margin-bottom: 14px;
+}
+
+.project-card-summary {
+  margin: 0 0 18px;
+  font-family: "Alegreya Sans", sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #4D473C;
+  flex-grow: 1;
+}
+
+.project-tech-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+  margin-bottom: 20px;
+}
+
+.project-tech-chip {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  background: rgba(16, 43, 76, 0.04);
+  border: 1px solid rgba(16, 43, 76, 0.1);
+  padding: 3px 8px;
+  border-radius: 2px;
+  color: var(--guild-navy, #071827);
+  font-weight: 500;
+}
+
+.project-metrics-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 12px 14px;
+  background: rgba(16, 43, 76, 0.03);
+  border: 1px solid rgba(16, 43, 76, 0.07);
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+
+.project-metric-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-val {
+  font-family: "GFS Didot", Georgia, serif;
+  font-size: 1.25rem;
+  color: var(--guild-navy, #071827);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.metric-lbl {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.6rem;
+  color: #7D735E;
+  letter-spacing: 0.08em;
+  margin-top: 2px;
+}
+
+.project-card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 14px;
+  border-top: 1px solid rgba(16, 43, 76, 0.09);
+}
+
+.project-repo-link {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--guild-burgundy, #8D1022);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.project-repo-link:hover {
+  color: var(--guild-navy, #071827);
+  transform: translateX(2px);
+}
+
+.project-details-link {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  color: #7A6F5A;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.project-details-link:hover {
+  color: var(--guild-navy, #071827);
+}
+
+/* --------------------------------------------------------------------------
+   8. MODULE F: PARTICIPATION & ONBOARDING
+   -------------------------------------------------------------------------- */
+.guild-participation-module {
+  margin-bottom: 24px;
+}
+
+.participation-inner-banner {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(244, 238, 220, 0.6) 100%);
+  border: 1px solid rgba(214, 173, 84, 0.4);
+  border-radius: 3px;
+  padding: clamp(24px, 4vw, 40px);
+  box-shadow: 0 10px 28px rgba(7, 24, 39, 0.04);
+}
+
+.participation-header {
+  margin-bottom: clamp(20px, 3vw, 28px);
+}
+
+.participation-headline {
+  margin: 0 0 8px;
+  font-family: "GFS Didot", Georgia, serif;
+  font-size: clamp(1.7rem, 2.5vw, 2.3rem);
+  font-weight: 400;
+  color: var(--guild-navy, #071827);
+  letter-spacing: -0.02em;
+}
+
+.participation-subheadline {
+  margin: 0;
+  font-family: "Alegreya Sans", sans-serif;
+  font-size: 1.05rem;
+  color: #555045;
+}
+
+.participation-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: clamp(16px, 2.5vw, 24px);
+  margin-bottom: 28px;
+}
+
+.participation-step-card {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(16, 43, 76, 0.1);
+  border-radius: 2px;
+  padding: 18px 20px;
+}
+
+.step-num-badge {
+  display: inline-block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  color: var(--guild-gold, #D6AD54);
+  margin-bottom: 8px;
+}
+
+.step-title {
+  margin: 0 0 6px;
+  font-family: "GFS Didot", Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--guild-navy, #071827);
+}
+
+.step-desc {
+  margin: 0;
+  font-family: "Alegreya Sans", sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #555045;
+}
+
+.participation-action-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(16, 43, 76, 0.1);
+}
+
+.participation-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  background: var(--guild-burgundy, #8D1022);
+  color: #FFFDF4;
+  border: 1px solid var(--guild-gold, #D6AD54);
+  border-radius: 2px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(141, 16, 34, 0.2);
+}
+
+.participation-cta-btn:hover {
+  background: var(--guild-navy, #071827);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(7, 24, 39, 0.25);
+}
+
+.participation-cta-btn .btn-arrow {
+  transition: transform 0.2s ease;
+}
+
+.participation-cta-btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+.participation-cadence-note {
+  font-family: "Alegreya Sans", sans-serif;
+  font-size: 0.88rem;
+  color: #7A705E;
+}
+
+/* --------------------------------------------------------------------------
+   9. RESPONSIVE BREAKPOINTS (Mobile & Tablet Refinements)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .guild-domains-grid,
+  .constellation-display-stage {
+    grid-template-columns: 1fr;
+  }
+  .guild-domain-detail-card,
+  .constellation-inspector-card {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .guild-hero-domains-pills {
+    display: none;
+  }
+  .guild-explore-toggle-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .project-metrics-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .participation-action-strip {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .participation-cta-btn {
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .guild-domain-card,
+  .constellation-node-card,
+  .guild-leader-card,
+  .guild-project-card,
+  .guild-explore-toggle-btn,
+  .participation-cta-btn {
+    transition: none !important;
+    transform: none !important;
+  }
+}

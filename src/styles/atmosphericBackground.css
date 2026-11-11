@@ -1,0 +1,342 @@
+/* ==========================================================================
+   FCIT CINEMATIC ATMOSPHERIC BACKGROUND
+   Visual Palette:
+   - Ivory: #FFF8E8
+   - Cream: #F5F0E5
+   - Pale Gold: #E8D69B
+   - Antique Gold: #D6B33F
+   - Crimson Accent: #B31419
+   - Deep Crimson: #5A0F0E
+   ========================================================================== */
+
+.atmospheric-environment {
+  --atmo-ivory: #FFF8E8;
+  --atmo-cream: #F5F0E5;
+  --atmo-gold-pale: #E8D69B;
+  --atmo-gold-antique: #D6B33F;
+  --atmo-crimson: #B31419;
+  --atmo-crimson-deep: #5A0F0E;
+
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
+  background-color: var(--atmo-ivory);
+}
+
+/* Variant: Full Hero Intensity */
+.atmospheric-environment--hero {
+  opacity: 1;
+}
+
+/* Variant: Fullscreen Intro Experience */
+.atmospheric-environment--intro {
+  opacity: 1;
+  position: fixed;
+  z-index: 0;
+}
+
+/* Variant: Subtle Section Backdrop */
+.atmospheric-environment--subtle {
+  opacity: 0.85;
+}
+
+/* Pause animations when tab is hidden */
+.atmospheric-environment.is-paused *,
+.atmospheric-environment.is-paused *::before,
+.atmospheric-environment.is-paused *::after {
+  animation-play-state: paused !important;
+}
+
+/* ==========================================================================
+   1. SKY BASE GRADIENT
+   ========================================================================== */
+.atmospheric-sky-base {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 95% 70% at 50% 8%, #FFFFFF 0%, var(--atmo-ivory) 46%, var(--atmo-cream) 100%);
+  z-index: 1;
+}
+
+/* ==========================================================================
+   2. AMBIENT VOLUMETRIC LIGHT ACCENTS
+   ========================================================================== */
+.atmospheric-light-accents {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* Radiant Antique Gold Light Bloom */
+.light-orb--gold {
+  position: absolute;
+  top: -15%;
+  left: 20%;
+  width: clamp(550px, 65vw, 1200px);
+  height: clamp(550px, 65vw, 1200px);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(214, 179, 63, 0.48) 0%,
+    rgba(232, 214, 155, 0.28) 45%,
+    rgba(255, 248, 232, 0.0) 70%
+  );
+  filter: blur(45px);
+  opacity: 0.45;
+  will-change: transform, opacity;
+}
+
+/* Subtle Crimson Atmospheric Horizon Glow */
+.light-orb--crimson {
+  position: absolute;
+  bottom: -10%;
+  right: 2%;
+  width: clamp(500px, 55vw, 1050px);
+  height: clamp(500px, 55vw, 1050px);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(179, 20, 25, 0.28) 0%,
+    rgba(90, 15, 14, 0.16) 45%,
+    transparent 72%
+  );
+  filter: blur(55px);
+  opacity: 0.28;
+  will-change: transform, opacity;
+}
+
+/* Sunbeam Haze Band across sky */
+.light-sunbeam-haze {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(232, 214, 155, 0.25) 35%,
+    transparent 70%
+  );
+  opacity: 0.75;
+}
+
+/* ==========================================================================
+   3. MULTI-LAYER VOLUMETRIC CLOUDS CANVAS
+   ========================================================================== */
+.atmospheric-clouds-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Individual Cloud Layer Container with Parallax Offset */
+.atmospheric-cloud-layer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  transform: translate3d(var(--px-x, 0px), var(--px-y, 0px), 0);
+  transition: transform 0.12s cubic-bezier(0.2, 0, 0.3, 1);
+  will-change: transform;
+}
+
+/* Double-tiled Horizontal Cloud Track for Seamless Infinite Looping */
+.cloud-track {
+  display: flex;
+  width: 200%;
+  will-change: transform;
+}
+
+.cloud-tile {
+  width: 50%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   Layer 1: High Sky Drifting Clouds (Upper Atmosphere behind Headline)
+   - Speed: 42s
+   - Vertical float: 14s
+   -------------------------------------------------------------------------- */
+.cloud-layer--high {
+  top: -4%;
+  height: clamp(340px, 46vh, 520px);
+  opacity: 0.95;
+  z-index: 4;
+}
+
+.cloud-track--high {
+  animation: 
+    cloudDriftHigh 42s linear infinite,
+    cloudFloatHigh 14s ease-in-out infinite alternate;
+}
+
+@keyframes cloudDriftHigh {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes cloudFloatHigh {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+/* --------------------------------------------------------------------------
+   Layer 2: Mid Cumulus Volumetric Billows (Center Viewport)
+   - Speed: 30s
+   - Vertical float: 10s
+   -------------------------------------------------------------------------- */
+.cloud-layer--mid {
+  top: 22%;
+  height: clamp(420px, 58vh, 680px);
+  opacity: 0.98;
+  z-index: 5;
+}
+
+.cloud-track--mid {
+  animation: 
+    cloudDriftMid 30s linear infinite,
+    cloudFloatMid 10s ease-in-out infinite alternate;
+}
+
+@keyframes cloudDriftMid {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes cloudFloatMid {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-16px); }
+  100% { transform: translateY(0px); }
+}
+
+/* --------------------------------------------------------------------------
+   Layer 3: Horizon Rolling Cloud Bank (Bottom Atmosphere)
+   - Speed: 52s
+   - Vertical float: 16s
+   -------------------------------------------------------------------------- */
+.cloud-layer--distant {
+  bottom: 0%;
+  height: clamp(380px, 50vh, 580px);
+  opacity: 0.95;
+  z-index: 6;
+}
+
+.cloud-track--distant {
+  animation: 
+    cloudDriftDistant 52s linear infinite,
+    cloudFloatDistant 16s ease-in-out infinite alternate;
+}
+
+@keyframes cloudDriftDistant {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes cloudFloatDistant {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+  100% { transform: translateY(0px); }
+}
+
+/* --------------------------------------------------------------------------
+   Layer 4: Foreground Drifting Mist Wisps (Desktop Only)
+   - Speed: 20s
+   - Vertical float: 7s
+   -------------------------------------------------------------------------- */
+.cloud-layer--front {
+  bottom: 8%;
+  height: clamp(280px, 38vh, 420px);
+  opacity: 0.90;
+  z-index: 7;
+}
+
+.cloud-track--front {
+  animation: 
+    cloudDriftFront 20s linear infinite,
+    cloudFloatFront 7s ease-in-out infinite alternate;
+}
+
+@keyframes cloudDriftFront {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes cloudFloatFront {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-18px); }
+  100% { transform: translateY(0px); }
+}
+
+/* ==========================================================================
+   4. EDITORIAL FILM GRAIN TEXTURE
+   ========================================================================== */
+.atmospheric-film-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+  opacity: 0.045;
+  mix-blend-mode: overlay;
+}
+
+/* ==========================================================================
+   MOBILE & ACCESSIBILITY OPTIMIZATION
+   ========================================================================== */
+@media (max-width: 767px) {
+  .atmospheric-cloud-layer {
+    transition: none;
+  }
+  
+  .cloud-track--high {
+    animation-duration: 35s;
+  }
+
+  .cloud-track--distant {
+    animation-duration: 40s;
+  }
+
+  .cloud-layer--mid,
+  .cloud-layer--front {
+    display: none !important;
+  }
+
+  .light-orb--gold {
+    filter: blur(35px);
+    width: 90vw;
+    height: 90vw;
+  }
+
+  .light-orb--crimson {
+    filter: blur(40px);
+    width: 80vw;
+    height: 80vw;
+  }
+}
+
+/* Prefers-reduced-motion: Stop animation, preserve serene static atmosphere */
+@media (prefers-reduced-motion: reduce) {
+  .cloud-track--high,
+  .cloud-track--mid,
+  .cloud-track--distant,
+  .cloud-track--front,
+  .light-orb--gold,
+  .light-orb--crimson {
+    animation: none !important;
+    transform: none !important;
+  }
+}

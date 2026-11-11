@@ -1,0 +1,100 @@
+/* ==========================================================================
+   GLOBAL BUTTERFLY SYSTEM — FCIT WEBSITE
+   Globally persistent, autonomous ambient butterfly flight system.
+   Portaled directly into document.body to prevent parent overflow/stacking issues.
+   ========================================================================== */
+
+.fcit-global-butterfly-portal {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 99999;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Single Autonomous Butterfly Anchor */
+.fcit-ambient-butterfly {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  will-change: transform;
+  filter: drop-shadow(0 4px 10px rgba(16, 43, 76, 0.22)) 
+          drop-shadow(0 8px 20px rgba(143, 16, 27, 0.25));
+  transition: filter 0.3s ease;
+}
+
+.fcit-ambient-butterfly-svg {
+  display: block;
+  overflow: visible;
+}
+
+/* Wing Anchors & 3D Flap Physics */
+.fcit-bf-wing-anchor {
+  transform-origin: 0px 0px;
+  will-change: transform;
+}
+
+.fcit-bf-wing {
+  transform-origin: 0px 0px;
+  will-change: transform;
+}
+
+.fcit-bf-wing--left {
+  animation: fcitWingFlapLeft var(--bf-flap-duration, 0.36s) ease-in-out infinite alternate;
+}
+
+.fcit-bf-wing--right {
+  animation: fcitWingFlapRight var(--bf-flap-duration, 0.36s) ease-in-out infinite alternate;
+}
+
+@keyframes fcitWingFlapLeft {
+  0% { transform: scaleX(1) rotate(-2deg); }
+  50% { transform: scaleX(0.42) rotate(-5deg); }
+  100% { transform: scaleX(0.08) rotate(-9deg); }
+}
+
+@keyframes fcitWingFlapRight {
+  0% { transform: scaleX(1) rotate(2deg); }
+  50% { transform: scaleX(0.42) rotate(5deg); }
+  100% { transform: scaleX(0.08) rotate(9deg); }
+}
+
+/* Body & Antennae */
+.fcit-bf-antenna--left {
+  transform-origin: 0px -7px;
+  transform: rotate(-3deg);
+}
+
+.fcit-bf-antenna--right {
+  transform-origin: 0px -7px;
+  transform: rotate(3deg);
+}
+
+.fcit-bf-torso {
+  transform-origin: 0px 0px;
+}
+
+/* Ethereal Golden Stardust Particles */
+.fcit-bf-sparkle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  margin: -5px 0 0 -5px;
+  will-change: transform, opacity;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Reduced Motion Override: gently docked or minimal movement */
+@media (prefers-reduced-motion: reduce) {
+  .fcit-bf-wing--left,
+  .fcit-bf-wing--right {
+    animation-duration: 1.8s !important;
+  }
+}

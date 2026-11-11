@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 760" fill="none">
+ <rect width="1000" height="760" fill="#d8d0bd"/>
+ <rect x="75" y="68" width="850" height="510" fill="#102b4c"/>
+ <rect x="115" y="110" width="770" height="420" fill="#f7f3e8"/>
+ <path d="M160 185h410M160 225h310M160 265h520" stroke="#c8c0ae" stroke-width="8"/>
+ <path d="M160 355h610" stroke="#102b4c" stroke-width="3" opacity=".2"/>
+ <g fill="#d6b33f"><rect x="165" y="385" width="62" height="105"/><rect x="260" y="345" width="62" height="145"/><rect x="355" y="295" width="62" height="195"/><rect x="450" y="325" width="62" height="165"/><rect x="545" y="250" width="62" height="240"/></g>
+ <path d="M680 390 745 330l60 60-60 60-65-60Z" fill="#102b4c"/>
+ <rect x="300" y="578" width="400" height="60" fill="#b9ad91"/>
+ <path d="M350 638v48M650 638v48" stroke="#102b4c" stroke-width="12"/>
+ <text x="80" y="720" fill="#102b4c" font-family="monospace" font-size="18" letter-spacing="3">LEARN BY MAKING / DEMO VISUAL</text>
+</svg>

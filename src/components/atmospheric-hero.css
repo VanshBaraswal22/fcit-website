@@ -1,0 +1,263 @@
+@import '@fontsource/newsreader/400.css';
+@import '@fontsource/newsreader/400-italic.css';
+@import '@fontsource/newsreader/500.css';
+@import '@fontsource/ibm-plex-sans/400.css';
+@import '@fontsource/ibm-plex-sans/500.css';
+@import '@fontsource/ibm-plex-sans/600.css';
+
+/* ==========================================================================
+   FCIT ATMOSPHERIC MOTION BACKGROUND & HERO
+   Visual Identity: Warm ivory cloudscape, deep crimson cloud masses,
+   soft golden sunlight, subtle mist and distant architectural silhouette.
+   ========================================================================== */
+
+.fcit-atmosphere {
+  position: relative;
+  isolation: isolate;
+  min-height: min(900px, 100svh);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: #5a0f0e;
+  color: #292827;
+  user-select: none;
+}
+
+/* Pause animations when browser tab is hidden */
+.fcit-atmosphere.is-paused *,
+.fcit-atmosphere.is-paused *::before,
+.fcit-atmosphere.is-paused *::after {
+  animation-play-state: paused !important;
+}
+
+.fcit-atmosphere__layer {
+  position: absolute;
+  inset: -6%;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: cover;
+  will-change: transform;
+}
+
+.fcit-atmosphere__layer--back {
+  z-index: -4;
+  background-image: url("/images/backgrounds/fcit-cloudscape.png");
+  background-position: center 60%;
+}
+
+.fcit-atmosphere__layer--front {
+  z-index: -3;
+  opacity: .18;
+  background-image: url("/images/backgrounds/fcit-cloudscape.png");
+  background-size: 118% auto;
+  background-position: 62% 48%;
+  mix-blend-mode: screen;
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 25%, #000 78%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 25%, #000 78%, transparent 100%);
+}
+
+.fcit-atmosphere__light {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 38%, rgba(255,248,232,.32), transparent 52%),
+    linear-gradient(180deg, rgba(255,248,232,.12), rgba(90,15,14,.22));
+  animation: fcit-light-breathe 20s ease-in-out infinite alternate;
+}
+
+.fcit-atmosphere__shade {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: 
+    linear-gradient(90deg, rgba(255,248,232,.14), rgba(255,248,232,.02) 52%, rgba(90,15,14,.14)),
+    radial-gradient(circle at 50% 45%, rgba(255, 248, 232, 0.4) 0%, rgba(255, 248, 232, 0.1) 60%, transparent 80%);
+}
+
+.fcit-atmosphere__bottom-fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: clamp(140px, 22vh, 260px);
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(90, 15, 14, 0.15) 25%,
+    rgba(179, 20, 25, 0.12) 50%,
+    rgba(255, 248, 232, 0.7) 80%,
+    #FFF8E8 100%
+  );
+}
+
+.fcit-atmosphere__content {
+  position: relative;
+  z-index: 1;
+  width: min(1040px, calc(100% - 48px));
+  padding: 5rem 0 4.2rem;
+  text-align: center;
+}
+
+.fcit-atmosphere__logo {
+  display: block;
+  width: 76px;
+  height: 76px;
+  aspect-ratio: 1;
+  object-fit: contain;
+  border-radius: 50%;
+  margin: 0 auto 1.15rem;
+  filter: drop-shadow(0 10px 24px rgba(90,15,14,.24));
+  background: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(255, 248, 232, 0.85), 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.fcit-atmosphere__affiliation {
+  margin: 0 auto clamp(0.75rem, 1.2vh, 1.15rem);
+  max-width: 860px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Primary Institutional Affiliation: Department of CSE (Prominent) */
+.fcit-atmosphere__dept {
+  margin: 0;
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  font-size: clamp(0.75rem, 1vw, 0.925rem);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #5A0F0E;
+  text-shadow: 0 1px 2px rgba(255, 248, 232, 0.85);
+  line-height: 1.35;
+}
+
+/* Secondary Institutional Affiliation: HBTU Kanpur (Subordinate & Smaller) */
+.fcit-atmosphere__univ {
+  margin: 0;
+  font-family: var(--font-body, "Alegreya Sans", sans-serif);
+  font-size: clamp(0.7rem, 0.85vw, 0.8125rem);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8C6A2E;
+  text-shadow: 0 1px 2px rgba(255, 248, 232, 0.75);
+  opacity: 0.92;
+  line-height: 1.25;
+}
+
+.fcit-atmosphere h1 {
+  max-width: 960px;
+  margin: 0 auto;
+  font-family: var(--font-serif-hero, "Bodoni Moda", "Newsreader", serif);
+  font-size: clamp(2.6rem, 5.2vw, 5.4rem);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  color: #292827;
+  text-shadow: 0 2px 16px rgba(255, 248, 232, 0.6);
+  text-transform: uppercase;
+}
+
+.fcit-atmosphere h1 span {
+  display: block;
+  color: #850713;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.fcit-atmosphere__copy {
+  max-width: 620px;
+  margin: 1.35rem auto 0;
+  font-family: var(--font-body, "Alegreya Sans", sans-serif);
+  font-size: clamp(1rem, 1.25vw, 1.15rem);
+  font-weight: 400;
+  line-height: 1.62;
+  color: #3c302c;
+  text-shadow: 0 1px 4px rgba(255, 248, 232, 0.8);
+}
+
+.fcit-atmosphere__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 1.8rem;
+}
+
+.fcit-atmosphere__button {
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem;
+  background: #850713;
+  color: #fff8e8;
+  text-decoration: none;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  box-shadow: 0 4px 16px rgba(90, 15, 14, 0.35);
+  transition: background .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+
+.fcit-atmosphere__button:hover {
+  background: #66060f;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(90, 15, 14, 0.45);
+}
+
+.fcit-atmosphere__text-link {
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.8rem;
+  background: transparent;
+  color: #292827;
+  text-decoration: none;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 1px solid rgba(41, 40, 39, 0.4);
+  border-radius: 2px;
+  transition: background .25s ease, border-color .25s ease, transform .25s ease;
+}
+
+.fcit-atmosphere__text-link:hover {
+  background: rgba(255, 248, 232, 0.8);
+  border-color: #292827;
+  transform: translateY(-2px);
+}
+
+@keyframes fcit-light-breathe {
+  from { opacity: .72; transform: scale(1); }
+  to { opacity: 1; transform: scale(1.035); }
+}
+
+@media (max-width: 768px) {
+  .fcit-atmosphere { min-height: 88svh; }
+  .fcit-atmosphere__content { width: min(100% - 32px, 620px); padding: 5rem 0 4rem; }
+  .fcit-atmosphere__layer--front { display: none; }
+  .fcit-atmosphere__eyebrow { letter-spacing: .1em; font-size: .7rem; }
+  .fcit-atmosphere h1 { font-size: clamp(2.8rem, 12vw, 4.8rem); }
+  .fcit-atmosphere__actions { gap: 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fcit-atmosphere__light { animation: none; }
+  .fcit-atmosphere__layer { transform: none !important; }
+  .fcit-atmosphere__button { transition: none; }
+}

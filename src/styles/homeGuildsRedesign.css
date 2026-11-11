@@ -1,0 +1,1003 @@
+/* ==========================================================================
+   FCIT WORKING GUILDS — LUXURY EDITORIAL VISUAL REDESIGN
+   Theme: High-fashion digital editorial compositions inspired by luxury
+          fashion houses, cinematic studios and bespoke digital portfolios.
+
+   Tokens:
+     - Midnight Navy:  #071827
+     - Warm Ivory:     #F2E8D5
+     - Champagne Gold: #D6AD54
+     - Burgundy:       #8D1022
+     - Charcoal:       #191B1F
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. GRID CONTAINER & DESKTOP ROW LAYOUT
+   -------------------------------------------------------------------------- */
+.home-guilds-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(16px, 1.8vw, 24px);
+  margin-bottom: clamp(36px, 5vh, 52px);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* --------------------------------------------------------------------------
+   2. CARD SHELL (Image-Led Full-Bleed Editorial Composition)
+   -------------------------------------------------------------------------- */
+.home-guild-editorial-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: clamp(520px, 58vh, 620px);
+  background-color: #071827;
+  border: 1px solid rgba(214, 173, 84, 0.22);
+  border-radius: 2px;
+  text-decoration: none;
+  color: #F2E8D5;
+  box-sizing: border-box;
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  box-shadow: 0 16px 40px rgba(7, 24, 39, 0.32);
+  will-change: transform, opacity;
+  transition: 
+    border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  --mouse-x: 0;
+  --mouse-y: 0;
+}
+
+/* --------------------------------------------------------------------------
+   3. BACKGROUND ARTWORK & SUBTLE TREATMENT
+   -------------------------------------------------------------------------- */
+.home-guild-card__image-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.home-guild-card__bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.001);
+  will-change: transform;
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+}
+
+/* Composition-specific object positioning to showcase key focal elements */
+.home-guild-card--lower-left .home-guild-card__bg {
+  object-position: center 28%; /* Architectural gateway prominent */
+}
+
+.home-guild-card--central .home-guild-card__bg {
+  object-position: center 32%; /* Marble bust & neural constellation */
+}
+
+.home-guild-card--asymmetric .home-guild-card__bg {
+  object-position: center 32%; /* Glowing geometric cubes */
+}
+
+.home-guild-card--spacious .home-guild-card__bg {
+  object-position: center center; /* Orbital research rings */
+}
+
+/* Subtle warm gold sheen layer on hover (enhances gold artwork details) */
+.home-guild-card__art-sheen {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at calc(50% + var(--mouse-x) * 35%) calc(45% + var(--mouse-y) * 35%),
+    rgba(214, 173, 84, 0.28) 0%,
+    rgba(141, 16, 34, 0.12) 40%,
+    transparent 75%
+  );
+  mix-blend-mode: screen;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --------------------------------------------------------------------------
+   4. LOCALISED GRADIENTS BEHIND TYPOGRAPHY (Preserving Unshaded Artwork)
+   -------------------------------------------------------------------------- */
+.home-guild-card__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+/* Dev's Guild: Strongest at bottom-left, architectural gateway totally open */
+.home-guild-card__scrim--lower-left {
+  background: 
+    linear-gradient(0deg, rgba(7, 24, 39, 0.96) 0%, rgba(7, 24, 39, 0.74) 34%, rgba(7, 24, 39, 0.16) 58%, transparent 86%),
+    linear-gradient(90deg, rgba(7, 24, 39, 0.8) 0%, rgba(7, 24, 39, 0.35) 48%, transparent 88%);
+}
+
+/* Intelligence Guild: Radial bottom-center vignette protecting marble bust */
+.home-guild-card__scrim--central {
+  background: 
+    radial-gradient(ellipse 95% 55% at 50% 90%, rgba(7, 24, 39, 0.98) 0%, rgba(7, 24, 39, 0.65) 44%, transparent 82%),
+    linear-gradient(0deg, rgba(7, 24, 39, 0.92) 0%, transparent 52%);
+}
+
+/* AlgoCrew: Asymmetric angled gradient leaving glowing cubes in prime view */
+.home-guild-card__scrim--asymmetric {
+  background: 
+    linear-gradient(15deg, rgba(7, 24, 39, 0.97) 0%, rgba(7, 24, 39, 0.72) 34%, rgba(7, 24, 39, 0.12) 58%, transparent 88%),
+    linear-gradient(0deg, rgba(7, 24, 39, 0.88) 0%, transparent 48%);
+}
+
+/* Fusion X: Spacious perimeter vignette leaving central orbital structure luminous */
+.home-guild-card__scrim--spacious {
+  background: 
+    linear-gradient(180deg, rgba(7, 24, 39, 0.6) 0%, transparent 22%),
+    linear-gradient(0deg, rgba(7, 24, 39, 0.94) 0%, rgba(7, 24, 39, 0.6) 30%, transparent 65%);
+}
+
+/* --------------------------------------------------------------------------
+   5. REFINED BURGUNDY / CHAMPAGNE GOLD ACCENT LINE (Reveals on Hover)
+   -------------------------------------------------------------------------- */
+.home-guild-card__accent-line {
+  position: absolute;
+  bottom: 56px;
+  left: clamp(20px, 2vw, 28px);
+  right: clamp(20px, 2vw, 28px);
+  height: 1px;
+  background: linear-gradient(90deg, #8D1022 0%, #D6AD54 50%, transparent 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 4;
+}
+
+.home-guild-card--central .home-guild-card__accent-line {
+  left: 18%;
+  right: 18%;
+  transform-origin: center;
+}
+
+/* --------------------------------------------------------------------------
+   6. EDITORIAL TYPOGRAPHY & CONTENT LAYER
+   -------------------------------------------------------------------------- */
+.home-guild-card__content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+  padding: clamp(20px, 2.2vw, 28px);
+}
+
+.home-guild-card__top {
+  display: flex;
+  width: 100%;
+}
+
+.home-guild-card__bottom {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  width: 100%;
+}
+
+/* Composition A: DEV'S GUILD (Lower-Left Typography) */
+.home-guild-card--lower-left .home-guild-card__bottom {
+  align-items: flex-start;
+  text-align: left;
+  padding-bottom: clamp(6px, 1.2vh, 12px);
+}
+
+/* Composition B: INTELLIGENCE GUILD (Central Composition) */
+.home-guild-card--central .home-guild-card__bottom {
+  align-items: center;
+  text-align: center;
+  padding-bottom: clamp(6px, 1.2vh, 12px);
+}
+
+/* Composition C: ALGOCREW (Asymmetric Composition) */
+.home-guild-card--asymmetric .home-guild-card__bottom {
+  align-items: flex-start;
+  text-align: left;
+  padding-bottom: clamp(6px, 1.2vh, 12px);
+}
+
+/* Composition D: FUSION X (Spacious Arrangement Framing Orbitals) */
+.home-guild-card--spacious .home-guild-card__content {
+  justify-content: space-between;
+}
+
+.home-guild-card--spacious .home-guild-card__bottom {
+  align-items: flex-start;
+  text-align: left;
+  padding-bottom: clamp(6px, 1.2vh, 12px);
+}
+
+/* DOMAIN LABEL (10-12px, Precision Technical Monospace on Dark Cards) */
+.home-guild-editorial-card .guild-domain-label {
+  display: inline-block;
+  font-family: var(--font-mono, "IBM Plex Mono", Consolas, monospace);
+  font-size: clamp(0.625rem, 0.7vw, 0.75rem); /* 10px - 12px */
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(242, 232, 213, 0.78);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.home-guild-card--asymmetric .guild-domain-label {
+  letter-spacing: 0.25em;
+}
+
+/* GUILD NAME (38-52px, High-Fashion Editorial Serif) */
+.guild-heading {
+  font-family: "GFS Didot", "Bodoni Moda", "Cormorant Garamond", "Newsreader", Georgia, serif;
+  font-size: clamp(2.2rem, 2.65vw, 3.125rem); /* 35px - 50px */
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  color: #F2E8D5;
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+  text-shadow: 0 2px 14px rgba(7, 24, 39, 0.75);
+}
+
+/* Sizing refinement specifically for INTELLIGENCE GUILD (so 12-letter word breathes comfortably) */
+.home-guild-card--central .guild-heading {
+  font-size: clamp(2.05rem, 2.35vw, 2.75rem); /* ~33px - 44px */
+}
+
+/* Spacious wide tracking for FUSION X */
+.home-guild-card--spacious .guild-heading {
+  letter-spacing: 0.08em;
+  font-size: clamp(2.15rem, 2.5vw, 2.95rem);
+}
+
+/* Overflow-hidden wrapper for staggered line reveal animation */
+.guild-heading__line-mask {
+  display: block;
+  overflow: hidden;
+}
+
+.guild-heading__line {
+  display: block;
+  transform: translate3d(0, 0, 0);
+  will-change: transform, opacity;
+}
+
+/* EDITORIAL TAGLINE (17-21px, Literary Serif Italic) */
+.guild-tagline {
+  font-family: "Cormorant Garamond", "Newsreader", Georgia, serif;
+  font-size: clamp(1.0625rem, 1.2vw, 1.25rem); /* 17px - 20px */
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.35;
+  color: #D6AD54;
+  margin: 0 0 16px 0;
+  text-shadow: 0 1px 8px rgba(7, 24, 39, 0.85);
+}
+
+/* EXPLORE GUILD INDICATOR (Minimal Luxury Call-to-Action) */
+.guild-explore {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono, "IBM Plex Mono", Consolas, monospace);
+  font-size: clamp(0.6875rem, 0.72vw, 0.75rem); /* 11px - 12px */
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #D6AD54;
+  margin-top: 4px;
+  transition: color 0.35s ease;
+}
+
+.guild-explore__arrow {
+  display: inline-block;
+  font-size: 0.95rem;
+  line-height: 1;
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.35s ease;
+  will-change: transform;
+}
+
+/* --------------------------------------------------------------------------
+   7. GUILD-SPECIFIC CONTINUOUS LIVING ARTWORK OVERLAYS
+   High-performance SVG overlays precisely aligned over background artwork.
+   Uses only CSS transforms, opacities, and stroke dash offsets.
+   -------------------------------------------------------------------------- */
+.guild-artwork-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+  opacity: 0.95;
+  transition: opacity 0.5s ease, filter 0.5s ease;
+  will-change: opacity, transform;
+}
+
+.guild-artwork-overlay-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Continuous Living Illustrations: Always running smoothly and independently */
+.guild-artwork-overlay * {
+  animation-play-state: running !important;
+}
+
+.home-guild-editorial-card .guild-artwork-overlay *,
+.guild-panel .guild-artwork-overlay *,
+.guild-artwork-stage .guild-artwork-overlay *,
+.guild-artwork-overlay * {
+  animation-play-state: running !important;
+}
+
+/* Stage Variant (Dedicated Working Guilds Monograph: 834 x 469 / 470 coordinate space) */
+.guild-artwork-overlay--stage .devs-arch-contour,
+.guild-artwork-overlay--stage .devs-portal-ambient {
+  transform-origin: 514px 172px;
+}
+
+.guild-artwork-overlay--stage .intel-orbit-group--cw,
+.guild-artwork-overlay--stage .intel-orbit-group--ccw,
+.guild-artwork-overlay--stage .intel-core-aura,
+.guild-artwork-overlay--stage .intel-hub-halo {
+  transform-origin: 672px 195px;
+}
+
+.guild-artwork-overlay--stage .algo-junction-glow {
+  transform-origin: 425px 235px;
+}
+
+.guild-artwork-overlay--stage .fusion-ring-rotator.ring-cw,
+.guild-artwork-overlay--stage .fusion-ring-rotator.ring-ccw,
+.guild-artwork-overlay--stage .fusion-ring-rotator.ring-equatorial,
+.guild-artwork-overlay--stage .fusion-central-aura {
+  transform-origin: 490px 235px;
+}
+
+/* Desktop Fine-Pointer Hover: Subtly increase animation brilliance & glow */
+@media (hover: hover) and (pointer: fine) {
+  .home-guild-editorial-card:hover .guild-artwork-overlay {
+    opacity: 1;
+    filter: brightness(1.15) drop-shadow(0 0 12px rgba(214, 173, 84, 0.28));
+  }
+}
+
+/* ==========================================================================
+   A. DEV'S GUILD — ARCHITECTURAL MOTION (9.6s Loop)
+   Pathway flowing, arch breathing, cloud floating, ribbon shimmering
+   ========================================================================== */
+.devs-highway-stream {
+  animation: devsStreamFlow 3.6s linear infinite;
+}
+.devs-highway-stream.stream-left { animation-delay: 0s; }
+.devs-highway-stream.stream-right { animation-delay: 0.7s; }
+
+@keyframes devsStreamFlow {
+  from { stroke-dashoffset: 64; }
+  to { stroke-dashoffset: 0; }
+}
+
+/* Dual Light Photons travelling along the curved highway */
+.devs-travel-photon.photon-1 {
+  offset-path: path("M 35 490 C 85 430, 150 350, 210 270 C 224 250, 233 225, 238 185");
+  animation: devsPhotonMove1 4.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+.devs-travel-photon.photon-2 {
+  offset-path: path("M 58 490 C 108 430, 172 350, 230 270 C 242 250, 248 225, 252 185");
+  animation: devsPhotonMove2 5.6s cubic-bezier(0.4, 0, 0.2, 1) infinite 2.2s;
+}
+
+@keyframes devsPhotonMove1 {
+  0% { offset-distance: 0%; opacity: 0; }
+  12% { opacity: 1; filter: drop-shadow(0 0 4px #D6AD54); }
+  85% { opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+
+@keyframes devsPhotonMove2 {
+  0% { offset-distance: 0%; opacity: 0; }
+  12% { opacity: 1; filter: drop-shadow(0 0 4px #FFF8E8); }
+  85% { opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+
+/* Gateway Arch Illumination & Portal Aura */
+.devs-arch-contour {
+  animation: devsArchPulse 9.6s ease-in-out infinite;
+}
+.devs-portal-ambient {
+  transform-origin: 245px 182px;
+  animation: devsPortalBreathe 9.6s ease-in-out infinite;
+}
+
+@keyframes devsArchPulse {
+  0%, 100% { opacity: 0.35; stroke: #D6AD54; filter: drop-shadow(0 0 2px rgba(214, 173, 84, 0.3)); }
+  50% { opacity: 1; stroke: #FFF8E8; filter: drop-shadow(0 0 8px rgba(214, 173, 84, 0.9)); }
+}
+
+@keyframes devsPortalBreathe {
+  0%, 100% { opacity: 0.3; transform: scale(0.96); }
+  50% { opacity: 0.85; transform: scale(1.08); }
+}
+
+/* Floating 3D Cloud Icon Accent */
+.devs-cloud-group {
+  animation: devsCloudDrift 7.2s ease-in-out infinite;
+}
+.devs-cloud-arrow {
+  animation: devsArrowPulse 3.6s ease-in-out infinite alternate;
+}
+
+@keyframes devsCloudDrift {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -3.5px, 0); }
+}
+
+@keyframes devsArrowPulse {
+  0% { opacity: 0.45; }
+  100% { opacity: 1; filter: drop-shadow(0 0 3px #D6AD54); }
+}
+
+/* Subtle Burgundy Ribbon Shimmer */
+.devs-ribbon-shimmer {
+  animation: devsRibbonWave 9.6s ease-in-out infinite;
+}
+
+@keyframes devsRibbonWave {
+  0%, 100% { opacity: 0.25; stroke-dashoffset: 75; }
+  50% { opacity: 0.7; stroke-dashoffset: 0; }
+}
+
+/* Entablature Edge Shimmer & Server Status LEDs */
+.devs-entablature-shimmer {
+  animation: devsEntablatureScan 6.4s linear infinite;
+}
+
+@keyframes devsEntablatureScan {
+  0% { stroke-dashoffset: 58; opacity: 0; }
+  20% { opacity: 0.9; }
+  50%, 100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+.devs-server-led {
+  animation: devsLedFlash 2.4s ease-in-out infinite alternate;
+}
+.devs-server-led.led-a { animation-delay: 0s; }
+.devs-server-led.led-b { animation-delay: 0.7s; }
+.devs-server-led.led-c { animation-delay: 1.4s; }
+
+@keyframes devsLedFlash {
+  0% { opacity: 0.3; }
+  100% { opacity: 1; filter: drop-shadow(0 0 3px #D6AD54); }
+}
+
+/* ==========================================================================
+   B. INTELLIGENCE GUILD — NEURAL MOTION (8.4s Loop)
+   Rotating rings, sequential firing nodes, glowing synapses, cognitive core
+   ========================================================================== */
+.intel-orbit-group--cw {
+  transform-origin: 270px 155px;
+  animation: intelOrbitCW 24s linear infinite;
+}
+.intel-orbit-group--ccw {
+  transform-origin: 270px 155px;
+  animation: intelOrbitCCW 30s linear infinite;
+}
+
+@keyframes intelOrbitCW {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes intelOrbitCCW {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.intel-core-aura {
+  transform-origin: 270px 155px;
+  animation: intelAuraBreathe 8.4s ease-in-out infinite;
+}
+
+@keyframes intelAuraBreathe {
+  0%, 100% { opacity: 0.28; transform: scale(0.95); }
+  50% { opacity: 0.75; transform: scale(1.10); }
+}
+
+/* Sequential Node Activations */
+.intel-neural-node {
+  animation: intelNodeFlashes 8.4s ease-in-out infinite;
+}
+.intel-neural-node.node-1 { animation-delay: 0.0s; }
+.intel-neural-node.node-2 { animation-delay: 1.1s; }
+.intel-neural-node.node-3 { animation-delay: 2.2s; }
+.intel-neural-node.node-4 { animation-delay: 3.3s; }
+.intel-neural-node.node-5 { animation-delay: 4.4s; }
+.intel-neural-node.node-6 { animation-delay: 5.5s; }
+.intel-neural-node.node-7 { animation-delay: 6.6s; }
+
+.intel-neural-node.node-hub {
+  animation: intelHubFlash 4.2s ease-in-out infinite;
+}
+.intel-hub-halo {
+  transform-origin: 270px 155px;
+  animation: intelHubHaloSpin 12s linear infinite;
+}
+
+@keyframes intelNodeFlashes {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  18% { opacity: 1; transform: scale(1.45); filter: drop-shadow(0 0 5px #D6AD54); }
+  36% { opacity: 0.45; }
+}
+
+@keyframes intelHubFlash {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.35); filter: drop-shadow(0 0 7px #D6AD54); }
+}
+
+@keyframes intelHubHaloSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Synaptic Connection Edge Pulses */
+.intel-syn-edge {
+  stroke: #D6AD54;
+  stroke-width: 1;
+  stroke-dasharray: 4 3;
+  animation: intelSynEdgePulse 8.4s ease-in-out infinite;
+}
+.intel-facet-edge {
+  stroke: rgba(242, 232, 213, 0.3);
+  stroke-width: 0.75;
+  animation: intelFacetGlow 8.4s ease-in-out infinite;
+}
+
+.syn-1 { animation-delay: 0.2s; }
+.syn-2 { animation-delay: 1.3s; }
+.syn-3 { animation-delay: 2.4s; }
+.syn-4 { animation-delay: 3.5s; }
+.syn-5 { animation-delay: 4.6s; }
+.syn-6 { animation-delay: 5.7s; }
+.syn-7 { animation-delay: 6.8s; }
+
+@keyframes intelSynEdgePulse {
+  0%, 100% { opacity: 0.2; stroke-dashoffset: 20; }
+  20% { opacity: 0.95; stroke: #FFF8E8; stroke-dashoffset: 0; filter: drop-shadow(0 0 3px #D6AD54); }
+  40% { opacity: 0.3; }
+}
+
+@keyframes intelFacetGlow {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 0.65; stroke: #D6AD54; }
+}
+
+.intel-waveform-trace {
+  animation: intelWaveformFlow 5s ease-in-out infinite alternate;
+}
+
+@keyframes intelWaveformFlow {
+  0% { opacity: 0.35; stroke-dashoffset: 30; }
+  100% { opacity: 0.85; stroke-dashoffset: 0; filter: drop-shadow(0 0 3px #D6AD54); }
+}
+
+/* ==========================================================================
+   C. ALGOCREW — ALGORITHMIC MOTION (7.2s Loop)
+   Graph traversal sequence, cube edge laser scans, floating geometry
+   ========================================================================== */
+.algo-graph-edge {
+  stroke: #D6AD54;
+  stroke-width: 1.2;
+  stroke-dasharray: 6 4;
+  animation: algoEdgeFlow 7.2s ease-in-out infinite;
+}
+.edge-step-1 { animation-delay: 0.0s; }
+.edge-step-2a, .edge-step-2b, .edge-step-2c { animation-delay: 1.8s; }
+.edge-step-3a, .edge-step-3b, .edge-step-3c { animation-delay: 3.6s; }
+.edge-step-4 { animation-delay: 5.4s; }
+
+@keyframes algoEdgeFlow {
+  0%, 100% { opacity: 0.2; stroke-dashoffset: 30; }
+  15% { opacity: 1; stroke: #FFF8E8; stroke-dashoffset: 0; filter: drop-shadow(0 0 4px #D6AD54); }
+  35% { opacity: 0.3; }
+}
+
+.algo-seq-node {
+  animation: algoSeqNodeFlash 7.2s ease-in-out infinite;
+}
+.node-a { animation-delay: 0.0s; }
+.node-b { animation-delay: 1.8s; }
+.node-c, .node-d, .node-e { animation-delay: 3.6s; }
+.node-f { animation-delay: 5.0s; }
+.node-g { animation-delay: 6.2s; }
+
+@keyframes algoSeqNodeFlash {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  12% { opacity: 1; transform: scale(1.45); filter: drop-shadow(0 0 6px #D6AD54); }
+  26% { opacity: 0.45; }
+}
+
+/* Isometric Cube Edge Laser Scan & Central Junction Glow */
+.algo-cube-top-edge {
+  animation: algoCubeScan 7.2s linear infinite;
+}
+.algo-cube-vertical-edge {
+  animation: algoCubeLaserBeam 7.2s ease-in-out infinite 3.6s;
+}
+.algo-junction-glow {
+  transform-origin: 200px 245px;
+  animation: algoJunctionPulse 7.2s ease-in-out infinite 3.6s;
+}
+
+@keyframes algoCubeScan {
+  0% { stroke-dashoffset: 64; opacity: 0.3; }
+  50% { opacity: 0.95; filter: drop-shadow(0 0 4px #D6AD54); }
+  100% { stroke-dashoffset: 0; opacity: 0.3; }
+}
+
+@keyframes algoCubeLaserBeam {
+  0%, 100% { opacity: 0.25; }
+  25% { opacity: 1; stroke: #FFF8E8; filter: drop-shadow(0 0 4px #D6AD54); }
+}
+
+@keyframes algoJunctionPulse {
+  0%, 100% { opacity: 0.25; transform: scale(0.9); }
+  30% { opacity: 0.85; transform: scale(1.2); }
+}
+
+.algo-floating-accent.accent-1 {
+  animation: algoFloatA 5.5s ease-in-out infinite;
+}
+.algo-floating-accent.accent-2 {
+  animation: algoFloatB 6.2s ease-in-out infinite 1.2s;
+}
+
+@keyframes algoFloatA {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -3.5px, 0); }
+}
+@keyframes algoFloatB {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, 3px, 0); }
+}
+
+/* ==========================================================================
+   D. FUSION X — ORBITAL MOTION (12.5s Loop)
+   Armillary orbital rings rotation, core radiant pulse, specular glint, badges
+   ========================================================================== */
+.fusion-ring-rotator.ring-cw {
+  transform-origin: 215px 230px;
+  animation: fusionOrbitRotateCW 22s linear infinite;
+}
+.fusion-ring-rotator.ring-ccw {
+  transform-origin: 215px 230px;
+  animation: fusionOrbitRotateCCW 17s linear infinite;
+}
+.fusion-ring-rotator.ring-equatorial {
+  transform-origin: 215px 230px;
+  animation: fusionOrbitRotateCW 28s linear infinite;
+}
+
+@keyframes fusionOrbitRotateCW {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes fusionOrbitRotateCCW {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.fusion-central-aura {
+  transform-origin: 215px 230px;
+  animation: fusionCorePulseGrad 12.5s ease-in-out infinite;
+}
+
+@keyframes fusionCorePulseGrad {
+  0%, 100% { opacity: 0.35; transform: scale(0.92); }
+  50% { opacity: 0.85; transform: scale(1.12); filter: drop-shadow(0 0 10px #D6AD54); }
+}
+
+.fusion-core-glint-bar {
+  animation: fusionSpecularGlint 12.5s ease-in-out infinite;
+}
+
+@keyframes fusionSpecularGlint {
+  0%, 30% { opacity: 0; transform: translate3d(-15px, -15px, 0); }
+  45% { opacity: 1; transform: translate3d(0, 0, 0); filter: drop-shadow(0 0 4px #FFF8E8); }
+  60%, 100% { opacity: 0; transform: translate3d(15px, 15px, 0); }
+}
+
+.fusion-badge-node.badge-cpu {
+  animation: fusionBadgeDriftA 6.8s ease-in-out infinite;
+}
+.fusion-badge-node.badge-atom {
+  animation: fusionBadgeDriftB 7.5s ease-in-out infinite 0.8s;
+}
+.fusion-badge-node.badge-leaf {
+  animation: fusionBadgeDriftA 8.2s ease-in-out infinite 1.5s;
+}
+.fusion-badge-node.badge-systems {
+  animation: fusionBadgeDriftB 7.1s ease-in-out infinite 2.2s;
+}
+
+@keyframes fusionBadgeDriftA {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -3px, 0); }
+}
+@keyframes fusionBadgeDriftB {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, 3px, 0); }
+}
+
+/* ==========================================================================
+   E. ENHANCED LIVING ARTWORK KEYFRAMES (Code symbols, Shortest path, Resonance)
+   ========================================================================== */
+
+/* 1. Dev's Guild — Traveling Bridge Pulse & Code Symbols */
+.devs-bridge-pulse {
+  animation: devsBridgeBeam 4.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes devsBridgeBeam {
+  0% { stroke-dashoffset: 365; opacity: 0; }
+  15% { opacity: 0.95; filter: drop-shadow(0 0 6px #FFF8E8); }
+  75% { opacity: 0.95; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+.devs-code-symbols {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  font-weight: 600;
+  fill: #D6AD54;
+  letter-spacing: 0.05em;
+  user-select: none;
+  pointer-events: none;
+}
+
+.guild-artwork-overlay--compact .devs-code-symbols {
+  font-size: 9px;
+}
+
+.devs-code-glyph {
+  opacity: 0;
+  animation: devsCodeDrift 6.8s ease-in-out infinite;
+}
+.glyph-1 { animation-delay: 0.2s; }
+.glyph-2 { animation-delay: 1.5s; fill: #FFF8E8; }
+.glyph-3 { animation-delay: 2.8s; }
+.glyph-4 { animation-delay: 4.1s; fill: #FFF8E8; }
+.glyph-5 { animation-delay: 5.4s; }
+
+@keyframes devsCodeDrift {
+  0%, 100% { opacity: 0; transform: translate3d(0, 4px, 0); }
+  25%, 55% { opacity: 0.85; transform: translate3d(0, -2px, 0); filter: drop-shadow(0 0 3px #D6AD54); }
+  75% { opacity: 0; transform: translate3d(0, -6px, 0); }
+}
+
+/* 2. Intelligence Guild — Central Resonance Waves */
+.intel-resonance-wave {
+  transform-origin: 270px 155px;
+  animation: intelWavePulse 6.4s ease-out infinite;
+  opacity: 0;
+}
+.guild-artwork-overlay--stage .intel-resonance-wave {
+  transform-origin: 672px 195px;
+}
+.intel-resonance-wave.wave-1 { animation-delay: 0s; }
+.intel-resonance-wave.wave-2 { animation-delay: 2.8s; }
+
+@keyframes intelWavePulse {
+  0% { transform: scale(0.65); opacity: 0.8; stroke-width: 1.6; }
+  60% { opacity: 0.45; stroke-width: 1; }
+  100% { transform: scale(1.6); opacity: 0; stroke-width: 0.4; }
+}
+
+/* 3. Algocrew — Shortest-Path Traversal Tracer */
+.algo-shortest-path-beam {
+  animation: algoShortestPathTrace 4.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  filter: drop-shadow(0 0 5px #FFF8E8);
+}
+
+@keyframes algoShortestPathTrace {
+  0% { stroke-dashoffset: 580; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+/* 4. Fusion X — Floating Core & Technical Symbols */
+.fusion-core-float {
+  animation: fusionCoreFloatBob 5.6s ease-in-out infinite;
+}
+
+@keyframes fusionCoreFloatBob {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -5px, 0); }
+}
+
+.fusion-tech-symbols {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 13px;
+  font-weight: 700;
+  fill: #D6AD54;
+  user-select: none;
+  pointer-events: none;
+}
+
+.guild-artwork-overlay--compact .fusion-tech-symbols {
+  font-size: 10px;
+}
+
+.fusion-symbol-glyph {
+  opacity: 0;
+  animation: fusionSymbolPulse 6.2s ease-in-out infinite;
+}
+.glyph-a { animation-delay: 0.4s; }
+.glyph-b { animation-delay: 1.6s; fill: #FFF8E8; }
+.glyph-c { animation-delay: 2.8s; }
+.glyph-d { animation-delay: 4.0s; fill: #FFF8E8; }
+.glyph-e { animation-delay: 5.2s; }
+
+@keyframes fusionSymbolPulse {
+  0%, 100% { opacity: 0.15; transform: scale(0.9); }
+  25%, 50% { opacity: 0.95; transform: scale(1.18); filter: drop-shadow(0 0 4px #D6AD54); }
+  75% { opacity: 0.2; }
+}
+
+/* --------------------------------------------------------------------------
+   8. DESKTOP HOVER INTERACTIONS (Fine-Pointer Only)
+   -------------------------------------------------------------------------- */
+@media (hover: hover) and (pointer: fine) {
+  .home-guild-editorial-card:hover {
+    border-color: rgba(214, 173, 84, 0.55);
+    box-shadow: 
+      0 24px 64px rgba(7, 24, 39, 0.45),
+      0 0 32px rgba(214, 173, 84, 0.16);
+  }
+
+  /* Artwork scale to ~1.04 with directional parallax */
+  .home-guild-editorial-card:hover .home-guild-card__bg {
+    transform: scale(1.04) translate3d(calc(var(--mouse-x) * -8px), calc(var(--mouse-y) * -8px), 0);
+  }
+
+  /* Ambient warm gold sheen enhancement */
+  .home-guild-editorial-card:hover .home-guild-card__art-sheen {
+    opacity: 1;
+  }
+
+  /* Reveal thin burgundy/gold accent line */
+  .home-guild-editorial-card:hover .home-guild-card__accent-line {
+    transform: scaleX(1);
+  }
+
+  /* Move explore arrow slightly */
+  .home-guild-editorial-card:hover .guild-explore {
+    color: #F2E8D5;
+  }
+
+  .home-guild-editorial-card:hover .guild-explore__arrow {
+    transform: translateX(6px);
+    color: #D6AD54;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   9. TOUCHSCREEN REFINEMENTS (Ensuring Visibility Without Hover)
+   -------------------------------------------------------------------------- */
+@media (hover: none), (pointer: coarse) {
+  .home-guild-card__accent-line {
+    transform: scaleX(1);
+    opacity: 0.5;
+  }
+  .guild-explore {
+    opacity: 0.92;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   10. RESPONSIVE BREAKPOINTS (Desktop, Laptop, Tablet, Mobile)
+   -------------------------------------------------------------------------- */
+
+/* Laptop / Small Desktop (1024px – 1140px) */
+@media (max-width: 1140px) and (min-width: 900px) {
+  .home-guilds-preview-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+  }
+  .home-guild-editorial-card {
+    min-height: 500px;
+    padding: 16px 14px;
+  }
+  .guild-heading {
+    font-size: clamp(1.9rem, 2.3vw, 2.4rem);
+  }
+}
+
+/* Tablet: Balanced 2×2 Grid (641px – 899px) */
+@media (max-width: 899px) and (min-width: 641px) {
+  .home-guilds-preview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+  .home-guild-editorial-card {
+    min-height: clamp(480px, 52vh, 540px);
+    padding: 24px;
+  }
+  .guild-heading {
+    font-size: clamp(2.2rem, 3.8vw, 2.85rem);
+  }
+}
+
+/* Mobile: Single-Column Layout (<= 640px) */
+@media (max-width: 640px) {
+  .home-guilds-preview-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .home-guild-editorial-card {
+    min-height: clamp(420px, 50vh, 480px);
+    padding: 24px 20px;
+  }
+
+  .guild-heading {
+    font-size: clamp(2.1rem, 7.5vw, 2.6rem);
+  }
+
+  .guild-tagline {
+    font-size: clamp(1rem, 3.8vw, 1.15rem);
+  }
+
+  /* Disable hover scale on touch */
+  .home-guild-editorial-card:hover .home-guild-card__bg {
+    transform: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   11. ACCESSIBILITY: PREFERS-REDUCED-MOTION
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .home-guild-editorial-card,
+  .home-guild-card__bg,
+  .home-guild-card__art-sheen,
+  .home-guild-card__accent-line,
+  .guild-heading__line,
+  .guild-explore__arrow,
+  .devs-pathway-glow,
+  .devs-path-line,
+  .devs-path-beacon,
+  .intel-synapse-edge,
+  .intel-node,
+  .algo-geo-node,
+  .orbit-primary,
+  .orbit-secondary,
+  .orbit-satellite {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    clip-path: none !important;
+    opacity: 1 !important;
+  }
+}

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" fill="none">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#E8D07F"/><stop offset="1" stop-color="#B98D2F"/></linearGradient>
+    <linearGradient id="navy" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#29496B"/><stop offset="1" stop-color="#102B4C"/></linearGradient>
+  </defs>
+  <!-- intersecting systems -->
+  <ellipse cx="450" cy="306" rx="325" ry="126" stroke="#B99A48" stroke-width="2" opacity=".72" transform="rotate(-24 450 306)"/>
+  <ellipse cx="450" cy="306" rx="325" ry="126" stroke="#102B4C" stroke-width="2" opacity=".52" transform="rotate(24 450 306)"/>
+  <ellipse cx="450" cy="306" rx="250" ry="190" stroke="#B99A48" stroke-width="1.4" opacity=".4" transform="rotate(90 450 306)" stroke-dasharray="3 9"/>
+  <path d="M450 70V542M118 306H782" stroke="#102B4C" stroke-width="1.1" opacity=".2" stroke-dasharray="3 10"/>
+  <!-- central layered intersection -->
+  <path d="M450 210L555 270L450 330L345 270L450 210Z" fill="#FFF8E8" stroke="#102B4C" stroke-width="2.4"/>
+  <path d="M345 270V360L450 421V330L345 270Z" fill="#102B4C" fill-opacity=".08" stroke="#102B4C" stroke-width="2.2"/>
+  <path d="M555 270V360L450 421V330L555 270Z" fill="url(#gold)" fill-opacity=".25" stroke="#102B4C" stroke-width="2.2"/>
+  <path d="M450 210V330M345 270L450 330L555 270" stroke="#B99A48" stroke-width="2"/>
+  <path d="M450 240L502 270L450 300L398 270L450 240Z" fill="url(#gold)" fill-opacity=".55" stroke="#102B4C" stroke-width="1.5"/>
+  <!-- four intersecting disciplines -->
+  <g stroke="#102B4C" stroke-width="2.2" fill="#FFF8E8">
+    <circle cx="450" cy="91" r="40"/><circle cx="715" cy="306" r="40"/><circle cx="450" cy="521" r="40"/><circle cx="185" cy="306" r="40"/>
+  </g>
+  <!-- research/flask glyph -->
+  <g stroke="#B98D2F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M438 65V89L423 112Q420 120 431 122H469Q480 120 477 112L462 89V65M438 65H462M435 103H465"/><path d="M431 112Q450 101 469 112"/></g>
+  <!-- chip glyph -->
+  <g stroke="#102B4C" stroke-width="2.2"><rect x="697" y="288" width="36" height="36" rx="4"/><path d="M706 299H724V317H706Z" stroke="#B99A48"/><path d="M706 278V288M715 278V288M724 278V288M706 324V334M715 324V334M724 324V334M687 297H697M687 306H697M687 315H697M733 297H743M733 306H743M733 315H743"/></g>
+  <!-- chart glyph -->
+  <g stroke="#102B4C" stroke-width="2.2" stroke-linejoin="round"><path d="M429 535V506H441V535M447 535V493H459V535M465 535V513H477V535"/><path d="M425 541H480" stroke="#B99A48"/></g>
+  <!-- leaf / idea glyph -->
+  <g stroke="#B99A48" stroke-width="2.4" stroke-linecap="round"><path d="M168 320C169 292 193 279 207 286C212 308 199 327 168 320Z"/><path d="M168 320L196 294M181 309L181 300M190 301L201 302"/></g>
+  <!-- connection nodes -->
+  <g stroke="#102B4C" stroke-width="2"><path d="M450 131L450 210M675 306L555 306M450 481L450 421M225 306L345 306"/></g>
+  <g fill="url(#gold)" stroke="#102B4C" stroke-width="1.5"><circle cx="450" cy="174" r="7"/><circle cx="615" cy="306" r="7"/><circle cx="450" cy="438" r="7"/><circle cx="285" cy="306" r="7"/></g>
+  <g fill="#B99A48"><circle cx="450" cy="91" r="4"/><circle cx="715" cy="306" r="4"/><circle cx="450" cy="521" r="4"/><circle cx="185" cy="306" r="4"/></g>
+  <path d="M118 120H240M660 492H782" stroke="#B99A48" stroke-width="1.2" opacity=".45"/>
+</svg>

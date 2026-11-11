@@ -1,0 +1,206 @@
+/* ==========================================================================
+   FCIT DEDICATED GUILD DETAIL PAGE STYLESHEET
+   Aesthetic: Luxury Technical Editorial Monograph
+   ========================================================================== */
+
+.guild-detail-page {
+  background-color: #FFFDF4;
+  color: #071827;
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+/* 1. Header Navigation Strip */
+.guild-detail-nav-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(214, 173, 84, 0.35);
+  margin-bottom: 36px;
+}
+
+.guild-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #071827;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.guild-back-link .back-arrow {
+  transition: transform 0.25s ease;
+  color: var(--elem-primary, #8D1022);
+}
+
+.guild-back-link:hover {
+  color: var(--elem-primary, #8D1022);
+}
+
+.guild-back-link:hover .back-arrow {
+  transform: translateX(-4px);
+}
+
+.guild-detail-chapter-pill {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  color: #8D1022;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: rgba(214, 173, 84, 0.15);
+  padding: 4px 12px;
+  border-radius: 2px;
+  border: 1px solid rgba(214, 173, 84, 0.3);
+}
+
+/* 2. Hero Section */
+.guild-detail-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.guild-detail-title {
+  font-family: "Bodoni Moda", "Newsreader", serif;
+  font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: #071827;
+  text-transform: uppercase;
+  margin: 0 0 14px 0;
+}
+
+.guild-detail-slogan {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.86rem;
+  letter-spacing: 0.18em;
+  color: var(--elem-primary, #8D1022);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 12px 0;
+}
+
+.guild-detail-domain-chip {
+  display: inline-block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: #071827;
+  background: rgba(214, 173, 84, 0.15);
+  padding: 4px 10px;
+  border: 1px solid rgba(214, 173, 84, 0.35);
+  margin-bottom: 18px;
+}
+
+.guild-detail-narrative {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #2D2A26;
+  max-width: 620px;
+  margin: 0;
+}
+
+/* 3. Deep Specification Modules */
+.guild-detail-main-modules {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.guild-detail-section {
+  position: relative;
+  background: #FFFDF4;
+}
+
+/* 4. Next Guild Footer Banner */
+.guild-detail-footer-next {
+  margin-top: 64px;
+  padding-top: 48px;
+  border-top: 1px solid rgba(214, 173, 84, 0.4);
+}
+
+.next-guild-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px clamp(20px, 4vw, 48px);
+  background: #FFFFFF;
+  border: 1px solid rgba(214, 173, 84, 0.45);
+  box-shadow: 0 8px 32px rgba(7, 24, 39, 0.06);
+}
+
+.next-guild-pre {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: #8D1022;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.next-guild-title {
+  font-family: "Bodoni Moda", "Newsreader", serif;
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  color: #071827;
+  text-transform: uppercase;
+}
+
+.next-guild-desc {
+  font-size: 0.95rem;
+  color: #55524E;
+  max-width: 460px;
+  margin: 0 0 24px 0;
+}
+
+.next-guild-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 28px;
+  background: #071827;
+  color: #FFFDF4;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(7, 24, 39, 0.15);
+}
+
+.next-guild-btn:hover {
+  background: var(--elem-primary, #8D1022);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(7, 24, 39, 0.25);
+}
+
+.next-guild-btn .next-arrow {
+  transition: transform 0.25s ease;
+}
+
+.next-guild-btn:hover .next-arrow {
+  transform: translateX(5px);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .guild-detail-hero {
+    grid-template-columns: 1fr;
+  }
+}

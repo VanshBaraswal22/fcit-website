@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" fill="none">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#E6C96C"/><stop offset="1" stop-color="#B98D2F"/></linearGradient>
+    <linearGradient id="navy" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#29496B"/><stop offset="1" stop-color="#102B4C"/></linearGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="#B99A48" opacity=".28"/></pattern>
+  </defs>
+  <circle cx="450" cy="300" r="245" stroke="#B99A48" stroke-width="1.4" opacity=".35" stroke-dasharray="2 10"/>
+  <circle cx="450" cy="300" r="198" stroke="#102B4C" stroke-width="1.2" opacity=".14"/>
+  <path d="M450 84V147M450 474V531M184 300H254M646 300H716" stroke="#B99A48" stroke-width="1.5" opacity=".65"/>
+  <path d="M450 150L450 205M285 300L353 300M547 300L615 300M450 405L450 470" stroke="#102B4C" stroke-width="2" opacity=".45"/>
+  <path d="M450 205L303 155L205 205M450 205L600 155L695 205M353 300L250 395L205 445M547 300L650 395L695 445" stroke="#102B4C" stroke-width="2" opacity=".42"/>
+  <path d="M450 150L450 205M303 155L303 215M600 155L600 215" stroke="#B99A48" stroke-width="2" opacity=".8"/>
+  <!-- central service cluster -->
+  <path d="M365 220L450 174L535 220V395L450 443L365 395V220Z" fill="#FFF8E8" fill-opacity=".42" stroke="url(#navy)" stroke-width="3"/>
+  <path d="M365 220L450 268L535 220M450 268V443" stroke="#102B4C" stroke-width="2.4"/>
+  <path d="M391 237L450 270L509 237M391 276L450 309L509 276M391 315L450 348L509 315M391 354L450 387L509 354" stroke="#B99A48" stroke-width="1.4" opacity=".85"/>
+  <path d="M397 250L397 368M450 279L450 417M503 250L503 368" stroke="#102B4C" stroke-width="1.1" opacity=".35"/>
+  <circle cx="450" cy="174" r="8" fill="url(#gold)" stroke="#102B4C" stroke-width="1.5"/>
+  <!-- edge server racks -->
+  <g stroke="#102B4C" stroke-width="2.2">
+    <path d="M112 215L172 181L232 215V365L172 400L112 365V215Z" fill="#FFF8E8" fill-opacity=".55"/>
+    <path d="M112 215L172 249L232 215M172 249V400M112 265L172 300L232 265M112 315L172 350L232 315"/>
+    <path d="M668 215L728 181L788 215V365L728 400L668 365V215Z" fill="#FFF8E8" fill-opacity=".55"/>
+    <path d="M668 215L728 249L788 215M728 249V400M668 265L728 300L788 265M668 315L728 350L788 315"/>
+  </g>
+  <g fill="url(#gold)" stroke="#102B4C" stroke-width="1.2"><circle cx="143" cy="278" r="5"/><circle cx="143" cy="328" r="5"/><circle cx="699" cy="278" r="5"/><circle cx="699" cy="328" r="5"/><circle cx="172" cy="236" r="5"/><circle cx="728" cy="236" r="5"/></g>
+  <!-- cloud / service nodes -->
+  <g stroke="#102B4C" stroke-width="2.2" fill="#FFF8E8" fill-opacity=".7">
+    <path d="M385 86C385 68 400 54 418 54C429 35 461 36 471 58C493 58 506 73 506 91C506 108 493 120 476 120H412C395 120 385 107 385 86Z"/>
+    <ellipse cx="172" cy="475" rx="52" ry="29"/><ellipse cx="728" cy="475" rx="52" ry="29"/>
+  </g>
+  <g stroke="#B99A48" stroke-width="2" fill="none"><path d="M420 120L420 151L303 155M480 120L480 151L600 155M172 446V400M728 446V400"/></g>
+  <g fill="#B99A48"><circle cx="303" cy="155" r="5"/><circle cx="600" cy="155" r="5"/><circle cx="250" cy="395" r="5"/><circle cx="650" cy="395" r="5"/></g>
+  <g stroke="#102B4C" stroke-width="1.6" opacity=".55"><path d="M92 520H808M132 540H768"/><path d="M450 531V554M440 544H460"/></g>
+  <g fill="#B99A48"><circle cx="205" cy="205" r="4"/><circle cx="695" cy="205" r="4"/><circle cx="205" cy="445" r="4"/><circle cx="695" cy="445" r="4"/></g>
+</svg>

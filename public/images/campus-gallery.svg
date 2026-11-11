@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" fill="none">
+ <rect width="1200" height="800" fill="#e7dfc9"/>
+ <path d="M0 550 1200 480v320H0z" fill="#b9ad91"/>
+ <circle cx="970" cy="170" r="90" fill="#d6b33f"/>
+ <path d="M105 540V250l280-120 280 120v290H105Z" fill="#f7f3e8" stroke="#102b4c" stroke-width="8"/>
+ <path d="m70 252 315-144 315 144" stroke="#102b4c" stroke-width="16"/>
+ <g fill="#102b4c"><rect x="170" y="290" width="55" height="70"/><rect x="265" y="290" width="55" height="70"/><rect x="360" y="290" width="55" height="70"/><rect x="455" y="290" width="55" height="70"/><rect x="170" y="400" width="55" height="70"/><rect x="265" y="400" width="55" height="70"/><rect x="360" y="400" width="55" height="70"/><rect x="455" y="400" width="55" height="70"/></g>
+ <path d="M740 540V300l160-80 160 80v240" fill="#d1c5a8" stroke="#102b4c" stroke-width="8"/>
+ <path d="m710 300 190-95 190 95" stroke="#102b4c" stroke-width="15"/>
+ <g fill="#102b4c"><rect x="785" y="340" width="42" height="60"/><rect x="875" y="340" width="42" height="60"/><rect x="965" y="340" width="42" height="60"/><rect x="785" y="430" width="42" height="60"/><rect x="875" y="430" width="42" height="60"/><rect x="965" y="430" width="42" height="60"/></g>
+ <text x="80" y="700" fill="#102b4c" font-family="Georgia,serif" font-size="54">The place we make things happen.</text>
+</svg>

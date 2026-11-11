@@ -1,0 +1,1338 @@
+/* ==========================================================================
+   FCIT WORKING GUILDS — THE ENGINEERING ATLAS
+   Art-directed editorial monograph with 4 distinct compositions,
+   overlapping sticky sheet transitions, and monumental typography.
+   ========================================================================== */
+
+.fcit-guild-story {
+  --guild-ivory: #FFF8E8;
+  --guild-parchment: #F2EBD9;
+  --guild-warm-sand: #FBF6E9;
+  --guild-stone: #F0E4D2;
+  --guild-navy: #102B4C;
+  --guild-gold: #D6B33F;
+  --guild-gold-muted: #B89230;
+  --guild-burgundy: #8F101B;
+  --guild-ink: #191B1F;
+  --guild-muted: #5C584F;
+  --guild-border: rgba(16, 43, 76, 0.14);
+  --guild-nav-height: 72px;
+
+  position: relative;
+  width: 100%;
+  color: var(--guild-ink);
+  background-color: var(--guild-ivory);
+  overflow: clip;
+}
+
+/* --------------------------------------------------------------------------
+   1. SECTION INTRO: COMPACT EDITORIAL OPENER (35–45svh)
+   -------------------------------------------------------------------------- */
+.guild-story-intro {
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: clamp(32px, 3.8vh, 46px) clamp(20px, 4.5vw, 64px) clamp(16px, 2.2vh, 26px);
+}
+
+.guild-intro-title {
+  margin: 0 0 14px;
+  color: var(--guild-navy);
+  font-family: "GFS Didot", "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2.8rem, 6.2vw, 5.8rem);
+  font-weight: 400;
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+}
+
+.guild-intro-title em {
+  display: inline-block;
+  color: var(--guild-gold);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.guild-intro-desc {
+  max-width: 640px;
+  margin: 0;
+  font-family: "Alegreya Sans", "IBM Plex Sans", sans-serif;
+  font-size: clamp(1.02rem, 1.35vw, 1.2rem);
+  line-height: 1.6;
+  color: var(--guild-muted);
+}
+
+/* --------------------------------------------------------------------------
+   2. STACKING EDITORIAL PANELS: THE ENGINEERING ATLAS
+   Overlapping physical sheets with sticky positioning and increasing z-index.
+   -------------------------------------------------------------------------- */
+.guild-stack {
+  position: relative;
+  padding: 0 clamp(16px, 3.2vw, 48px) 10vh;
+}
+
+.guild-panel {
+  --panel-bg: var(--guild-ivory);
+  position: sticky;
+  top: calc(var(--guild-nav-height) + 8px);
+  z-index: calc(10 + var(--panel-index) * 10);
+  min-height: min(80svh, 840px);
+  margin: 0 auto 12vh;
+  max-width: 1520px;
+  padding: clamp(28px, 4.2vw, 54px) clamp(24px, 5vw, 68px);
+  background: var(--panel-bg);
+  isolation: isolate;
+  overflow: clip;
+  border: 1px solid var(--guild-border);
+  box-shadow: 0 -12px 36px rgba(16, 43, 76, 0.05), 0 2px 8px rgba(0, 0, 0, 0.02);
+  display: grid;
+  align-items: center;
+  transition: box-shadow 0.4s ease;
+}
+
+/* Expanded Specification State: allows natural scrolling through in-depth modules */
+.guild-panel.is-expanded {
+  position: relative !important;
+  top: auto !important;
+  min-height: auto;
+  overflow: visible !important;
+  align-items: start;
+  margin-bottom: clamp(64px, 10vw, 120px);
+}
+
+/* Editorial subtle glow background atmosphere */
+.guild-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: 
+    radial-gradient(circle at 85% 15%, rgba(214, 179, 63, 0.12), transparent 35%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, transparent 55%);
+}
+
+/* Very subtle editorial background textures from kit */
+.guild-panel--dev::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url('/assets/guilds/texture-microgrid.svg');
+  background-repeat: repeat;
+  opacity: 0.04;
+}
+
+.guild-panel--intelligence::after,
+.guild-panel--fusion::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url('/assets/guilds/texture-contour-lines.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.045;
+}
+
+/* Panel Header Topline */
+.guild-panel-topline {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  align-self: start;
+  margin-bottom: clamp(12px, 2vh, 24px);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #8C7345;
+  border-bottom: 1px solid rgba(16, 43, 76, 0.09);
+  padding-bottom: 10px;
+}
+
+.guild-panel-topline .topline-chapter {
+  color: var(--guild-burgundy);
+  font-weight: 700;
+}
+
+.guild-panel-topline .topline-atlas {
+  color: #7A7264;
+}
+
+/* Common Panel Typography */
+.guild-panel-copy {
+  position: relative;
+  z-index: 2;
+}
+
+.guild-number-tag {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+  color: var(--guild-gold);
+  margin: 0 0 10px;
+  font-weight: 700;
+}
+
+.guild-number-tag span {
+  color: #A39780;
+  font-weight: 400;
+}
+
+/* Monumental Guild Title: THE LARGEST WORDS IN EVERY CHAPTER */
+.guild-title {
+  margin: 0;
+  color: var(--guild-navy);
+  font-family: "GFS Didot", "Cormorant Garamond", Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 0.78;
+  text-transform: uppercase;
+}
+
+.guild-title-line {
+  display: block;
+  overflow: visible;
+  padding-left: 4px;
+  will-change: transform, opacity;
+}
+
+.guild-title-line span {
+  display: block;
+  transform: translateY(16px);
+  opacity: 0.5;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), 
+              opacity 0.5s ease;
+}
+
+.guild-panel.is-active .guild-title-line span,
+.guild-panel.is-in-view .guild-title-line span {
+  transform: translateY(0) !important;
+  opacity: 1 !important;
+}
+
+/* Connective Fine Gold Rule */
+.guild-gold-connector {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--guild-gold) 0%, rgba(214, 179, 63, 0.2) 100%);
+  margin: 18px 0 14px;
+  transform-origin: left;
+  transform: scaleX(0.2);
+  opacity: 0;
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.65s ease;
+  will-change: transform, opacity;
+}
+
+.guild-panel.is-active .guild-gold-connector,
+.guild-panel.is-in-view .guild-gold-connector {
+  transform: scaleX(1) !important;
+  opacity: 1 !important;
+  transition-delay: 0.14s;
+}
+
+.guild-tagline-motto {
+  margin: 16px 0 6px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: clamp(0.78rem, 1.05vw, 0.92rem);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--guild-burgundy, #8D1022);
+}
+
+.guild-domain-label,
+.guild-panel-domain {
+  margin: 0 0 14px;
+  font-family: "Alegreya Sans", "IBM Plex Sans", sans-serif;
+  font-size: clamp(1.08rem, 1.45vw, 1.35rem);
+  font-weight: 500;
+  color: var(--guild-navy, #071827);
+  letter-spacing: 0.01em;
+}
+
+.guild-descriptor-note {
+  margin: 0 0 10px;
+  font-family: "Alegreya Sans", "IBM Plex Sans", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--guild-burgundy);
+  line-height: 1.4;
+}
+
+.guild-narrative-body {
+  max-width: 540px;
+  margin: 0 0 16px;
+  font-family: "Alegreya Sans", "IBM Plex Sans", sans-serif;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: #4A463E;
+}
+
+/* Slogan / Focus Verbs (Editorial Annotations) */
+.guild-slogan-verbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  padding: 0;
+  margin: 16px 0 0;
+  list-style: none;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--guild-navy);
+}
+
+.guild-slogan-verbs li + li::before {
+  content: "·";
+  margin-right: 14px;
+  color: var(--guild-gold);
+  font-weight: 700;
+}
+
+/* Stagger reveals for secondary elements */
+.guild-panel .guild-tagline-motto,
+.guild-panel .guild-domain-label,
+.guild-panel .guild-panel-domain,
+.guild-panel .guild-descriptor-note,
+.guild-panel .guild-narrative-body,
+.guild-panel .guild-slogan-verbs,
+.guild-panel .guild-elemental-explore-btn {
+  opacity: 0.35;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.guild-panel.is-active .guild-tagline-motto,
+.guild-panel.is-active .guild-domain-label,
+.guild-panel.is-active .guild-panel-domain,
+.guild-panel.is-active .guild-descriptor-note,
+.guild-panel.is-active .guild-narrative-body,
+.guild-panel.is-active .guild-slogan-verbs,
+.guild-panel.is-active .guild-elemental-explore-btn,
+.guild-panel.is-in-view .guild-tagline-motto,
+.guild-panel.is-in-view .guild-domain-label,
+.guild-panel.is-in-view .guild-panel-domain,
+.guild-panel.is-in-view .guild-descriptor-note,
+.guild-panel.is-in-view .guild-narrative-body,
+.guild-panel.is-in-view .guild-slogan-verbs,
+.guild-panel.is-in-view .guild-elemental-explore-btn {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition-delay: 0.18s;
+}
+
+/* Artwork Stage & Frame: Gentle Reveal Scaling & Bidirectional Sharpness */
+.guild-artwork-stage {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  transform: translate3d(0, 24px, 0) scale(0.95);
+  opacity: 0.35;
+  clip-path: inset(5% 5% 5% 5%);
+  filter: none;
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.7s ease,
+              clip-path 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity, clip-path;
+}
+
+.guild-panel.is-active .guild-artwork-stage,
+.guild-panel.is-in-view .guild-artwork-stage,
+.guild-artwork-stage.is-in-view {
+  transform: translate3d(0, 0, 0) scale(1) !important;
+  opacity: 1 !important;
+  clip-path: inset(0) !important;
+  filter: none !important;
+}
+
+.guild-stage-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9.2;
+  border-radius: 3px;
+  overflow: hidden;
+  background-color: #071827;
+  border: 1px solid rgba(214, 173, 84, 0.28);
+  box-shadow: 
+    0 24px 64px rgba(7, 24, 39, 0.28),
+    0 4px 18px rgba(0, 0, 0, 0.1),
+    inset 0 0 0 1px rgba(255, 248, 232, 0.08);
+  isolation: isolate;
+  transition: 
+    border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.guild-panel.is-active .guild-stage-frame,
+.guild-panel.is-in-view .guild-stage-frame,
+.guild-panel.has-revealed .guild-stage-frame {
+  border-color: rgba(214, 173, 84, 0.45);
+  box-shadow: 
+    0 32px 72px rgba(7, 24, 39, 0.35),
+    0 0 24px rgba(214, 173, 84, 0.12),
+    inset 0 0 0 1px rgba(255, 248, 232, 0.12);
+}
+
+.guild-stage-bg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.002);
+  will-change: transform;
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.guild-stage-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: 
+    linear-gradient(to top, rgba(7, 24, 39, 0.48) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, transparent 60%, rgba(7, 24, 39, 0.32) 100%);
+}
+
+.guild-stage-frame .guild-artwork-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .guild-stage-frame:hover {
+    border-color: rgba(214, 173, 84, 0.65);
+    box-shadow: 
+      0 36px 80px rgba(7, 24, 39, 0.42),
+      0 0 32px rgba(214, 173, 84, 0.25);
+  }
+  .guild-stage-frame:hover .guild-stage-bg {
+    transform: scale(1.025);
+  }
+  .guild-stage-frame:hover .guild-artwork-overlay {
+    filter: brightness(1.15) drop-shadow(0 0 16px rgba(214, 173, 84, 0.35));
+  }
+}
+
+.guild-artwork-stage img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 24px rgba(16, 43, 76, 0.06));
+}
+
+/* Subtle background edge watermark index */
+.guild-panel-watermark {
+  position: absolute;
+  right: 2.5rem;
+  bottom: 1.5rem;
+  z-index: 0;
+  color: rgba(16, 43, 76, 0.045);
+  font-family: "GFS Didot", Georgia, serif;
+  font-size: clamp(8rem, 19vw, 18rem);
+  line-height: 0.7;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* --------------------------------------------------------------------------
+   3. FOUR DISTINCT ART-DIRECTED COMPOSITIONS
+   -------------------------------------------------------------------------- */
+
+/* CHAPTER 01: DEV'S GUILD (Infrastructure as Architecture) */
+.guild-panel--dev {
+  --panel-bg: var(--guild-ivory);
+  grid-template-columns: minmax(0, 0.95fr) minmax(340px, 1.05fr);
+  column-gap: clamp(24px, 4vw, 56px);
+}
+
+.guild-panel--dev .guild-title {
+  font-size: clamp(5.2rem, 9.8vw, 10.5rem);
+}
+
+.guild-panel--dev .guild-artwork-stage {
+  width: 100%;
+  max-width: 860px;
+  justify-self: center;
+  margin-right: 0;
+}
+
+/* CHAPTER 02: INTELLIGENCE GUILD (A Field of Connected Ideas) */
+.guild-panel--intelligence {
+  --panel-bg: var(--guild-parchment);
+  grid-template-columns: minmax(300px, 0.9fr) minmax(440px, 1.28fr);
+  column-gap: clamp(24px, 4vw, 56px);
+}
+
+.guild-panel--intelligence .guild-panel-copy {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.guild-panel--intelligence .guild-artwork-stage {
+  grid-column: 1;
+  grid-row: 2;
+  width: 100%;
+  max-width: 820px;
+  justify-self: center;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.guild-panel--intelligence .guild-title {
+  font-size: clamp(3.4rem, 5.6vw, 6.2rem);
+  letter-spacing: -0.04em;
+}
+
+.guild-panel--intelligence .guild-title-line:nth-child(2) span {
+  color: var(--guild-burgundy);
+  font-style: italic;
+  font-size: 0.94em;
+}
+
+/* CHAPTER 03: ALGOCREW (The Path Through the Problem) */
+.guild-panel--algo {
+  --panel-bg: var(--guild-warm-sand);
+  grid-template-columns: minmax(300px, 1.05fr) minmax(360px, 1.15fr);
+  column-gap: clamp(24px, 4vw, 56px);
+}
+
+.guild-panel--algo .guild-artwork-stage {
+  grid-column: 1;
+  grid-row: 2;
+  width: 100%;
+  max-width: 860px;
+  justify-self: center;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.guild-panel--algo .guild-panel-copy {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.guild-panel--algo .guild-title {
+  font-size: clamp(5.2rem, 9.5vw, 9.8rem);
+}
+
+.guild-panel--algo .guild-title-split-crew {
+  color: var(--guild-gold);
+  font-style: italic;
+}
+
+/* CHAPTER 04: FUSION X (Disciplines Intersect) */
+.guild-panel--fusion {
+  --panel-bg: var(--guild-stone);
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 1.05fr);
+  column-gap: clamp(24px, 4vw, 56px);
+}
+
+.guild-panel--fusion .guild-panel-copy {
+  max-width: 780px;
+}
+
+.guild-panel--fusion .guild-title {
+  font-size: clamp(5.2rem, 9.8vw, 10.5rem);
+}
+
+.guild-panel--fusion .fusion-x-glyph {
+  display: inline-block;
+  color: var(--guild-burgundy);
+  font-style: italic;
+  font-size: 1.18em;
+}
+
+.guild-panel--fusion .guild-artwork-stage {
+  width: 100%;
+  max-width: 860px;
+  justify-self: center;
+  margin-right: 0;
+}
+
+/* --------------------------------------------------------------------------
+   4. EDITORIAL FOOTER STRIP & CONCLUSIVE CTA
+   -------------------------------------------------------------------------- */
+.guild-story-footer {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 32px clamp(20px, 4.5vw, 64px) clamp(64px, 8vh, 96px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  border-top: 1px solid var(--guild-border);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7D7362;
+}
+
+.guild-story-footer .footer-fraternity-label {
+  color: var(--guild-navy);
+  font-weight: 600;
+}
+
+.guild-footer-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--guild-navy);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.guild-footer-cta .cta-arrow {
+  color: var(--guild-burgundy);
+  transition: transform 0.25s ease;
+}
+
+.guild-footer-cta:hover {
+  color: var(--guild-burgundy);
+  transform: translateX(4px);
+}
+
+.guild-footer-cta:hover .cta-arrow {
+  transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   5. RESPONSIVE BREAKPOINTS (1920, 1536, 1366, 900, 390)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .guild-panel--dev .guild-artwork-stage,
+  .guild-panel--fusion .guild-artwork-stage,
+  .guild-panel--intelligence .guild-artwork-stage,
+  .guild-panel--algo .guild-artwork-stage {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .guild-panel {
+    position: relative;
+    top: auto;
+    min-height: auto;
+    margin: 0 auto 24px;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: clamp(28px, 5vw, 42px) clamp(20px, 4vw, 36px);
+  }
+
+  .guild-panel--intelligence .guild-panel-copy,
+  .guild-panel--algo .guild-panel-copy {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .guild-panel--intelligence .guild-artwork-stage,
+  .guild-panel--algo .guild-artwork-stage {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .guild-panel--dev .guild-artwork-stage,
+  .guild-panel--fusion .guild-artwork-stage {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .guild-title {
+    font-size: clamp(3.8rem, 11vw, 6.5rem) !important;
+  }
+
+  .guild-panel-watermark {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .guild-story-intro {
+    padding-top: 32px;
+  }
+
+  .guild-stack {
+    padding-inline: 12px;
+  }
+
+  .guild-panel {
+    padding: 24px 18px 28px;
+  }
+
+  .guild-title {
+    font-size: clamp(3rem, 13vw, 4.8rem) !important;
+  }
+
+  .guild-narrative-body {
+    font-size: 0.95rem;
+  }
+
+  .guild-story-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  .guild-title-line span,
+  .guild-gold-connector,
+  .guild-tagline-motto,
+  .guild-domain-label,
+  .guild-panel-domain,
+  .guild-descriptor-note,
+  .guild-narrative-body,
+  .guild-slogan-verbs,
+  .guild-artwork-stage,
+  .guild-stage-frame {
+    transform: none !important;
+    opacity: 1 !important;
+    clip-path: none !important;
+    transition: none !important;
+  }
+
+  .guild-artwork-overlay * {
+    animation: none !important;
+  }
+}
+
+/* ==========================================================================
+   6. HOMEPAGE COMPACT PREVIEW SECTION (.home-guilds-preview-section)
+   ========================================================================== */
+.home-guilds-preview-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--guild-ivory, #FFF8E8);
+  padding: clamp(56px, 7.5vh, 96px) 0;
+  border-top: 1px solid rgba(16, 43, 76, 0.12);
+  border-bottom: 1px solid rgba(16, 43, 76, 0.12);
+  overflow: clip;
+}
+
+.home-guilds-preview-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4.5vw, 64px);
+  box-sizing: border-box;
+}
+
+.home-guilds-topline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--guild-gold-muted, #B89230);
+  margin-bottom: 16px;
+}
+
+.home-guilds-topline .topline-tag {
+  color: var(--guild-burgundy, #8F101B);
+  font-weight: 700;
+}
+
+.home-guilds-topline .topline-dot {
+  opacity: 0.4;
+}
+
+.home-guilds-header-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 4vw, 56px);
+  align-items: end;
+  margin-bottom: clamp(36px, 5vh, 56px);
+}
+
+.home-guilds-title {
+  margin: 0;
+  color: var(--guild-navy, #102B4C);
+  font-family: "GFS Didot", "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2.4rem, 4.8vw, 4.5rem);
+  font-weight: 400;
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+}
+
+.home-guilds-title em {
+  display: inline-block;
+  color: var(--guild-gold, #D6B33F);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.home-guilds-header-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.home-guilds-lead-text {
+  margin: 0;
+  font-family: "Alegreya Sans", "IBM Plex Sans", sans-serif;
+  font-size: clamp(1.02rem, 1.25vw, 1.15rem);
+  line-height: 1.6;
+  color: #5C584F;
+  max-width: 580px;
+}
+
+.home-guilds-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(16px, 2vw, 24px);
+  margin-bottom: clamp(36px, 5vh, 52px);
+}
+
+.home-guild-preview-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(16, 43, 76, 0.12);
+  border-radius: 2px;
+  padding: clamp(18px, 2vw, 24px);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.home-guild-preview-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(16, 43, 76, 0.08);
+  border-color: var(--guild-gold, #D6B33F);
+}
+
+.home-guild-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.home-guild-card-number {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--guild-gold, #D6B33F);
+  letter-spacing: 0.1em;
+}
+
+.home-guild-card-arrow {
+  font-size: 1rem;
+  color: var(--guild-burgundy, #8F101B);
+  transition: transform 0.2s ease;
+}
+
+.home-guild-preview-card:hover .home-guild-card-arrow {
+  transform: translate(2px, -2px);
+}
+
+.home-guild-card-visual {
+  width: 100%;
+  height: 140px;
+  background: #FAF7EE;
+  border: 1px solid rgba(16, 43, 76, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  box-sizing: border-box;
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+
+.home-guild-card-visual img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(16, 43, 76, 0.05));
+  transition: transform 0.35s ease;
+}
+
+.home-guild-preview-card:hover .home-guild-card-visual img {
+  transform: scale(1.05);
+}
+
+.home-guild-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.home-guild-card-name {
+  margin: 0 0 6px;
+  color: var(--guild-navy, #102B4C);
+  font-family: "GFS Didot", Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.home-guild-card-domain {
+  margin: 0 0 10px;
+  font-family: "Alegreya Sans", sans-serif;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--guild-burgundy, #8F101B);
+  line-height: 1.35;
+}
+
+.home-guild-card-tagline {
+  margin: 0 0 16px;
+  font-family: "Alegreya Sans", sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: #5C584F;
+  flex: 1;
+}
+
+.home-guild-card-verbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(16, 43, 76, 0.12);
+}
+
+.home-guild-card-verbs .verb-tag {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--guild-navy, #102B4C);
+  background: rgba(16, 43, 76, 0.05);
+  padding: 3px 7px;
+  border-radius: 2px;
+}
+
+/* Conclusive Bottom Action Bar */
+.home-guilds-preview-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(16, 43, 76, 0.12);
+}
+
+.home-guilds-footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.footer-monograph-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--guild-navy, #102B4C);
+}
+
+.footer-monograph-desc {
+  font-family: "Alegreya Sans", sans-serif;
+  font-size: 0.95rem;
+  color: #6C665C;
+}
+
+/* Explore Button */
+.home-guilds-explore-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--guild-navy, #102B4C);
+  color: var(--guild-ivory, #FFF8E8);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 13px 24px;
+  border: 1px solid var(--guild-navy, #102B4C);
+  border-radius: 2px;
+  transition: all 0.28s ease;
+  width: fit-content;
+}
+
+.home-guilds-explore-btn .btn-arrow {
+  color: var(--guild-gold, #D6B33F);
+  font-size: 1rem;
+  transition: transform 0.25s ease;
+}
+
+.home-guilds-explore-btn:hover {
+  background-color: var(--guild-burgundy, #8F101B);
+  border-color: var(--guild-burgundy, #8F101B);
+  color: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(143, 16, 27, 0.22);
+}
+
+.home-guilds-explore-btn:hover .btn-arrow {
+  transform: translateX(4px);
+  color: #FFFFFF;
+}
+
+@media (max-width: 1024px) {
+  .home-guilds-header-split {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .home-guilds-explore-btn--top {
+    display: none;
+  }
+  .home-guilds-preview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .home-guilds-preview-grid {
+    grid-template-columns: 1fr;
+  }
+  .home-guilds-preview-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .home-guilds-explore-btn--bottom {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   ENHANCED GUILD PRESENTATION: AMBIENT MOTION, 3D PARALLAX & REFINED TYPOGRAPHY
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. RESTRAINED AMBIENT BACKGROUND
+   -------------------------------------------------------------------------- */
+.guild-ambient-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.guild-ambient-grid {
+  position: absolute;
+  inset: -100px;
+  background-image: 
+    linear-gradient(to right, rgba(16, 43, 76, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(16, 43, 76, 0.025) 1px, transparent 1px);
+  background-size: 80px 80px;
+  animation: ambientGridShift 90s linear infinite;
+  opacity: 0.85;
+}
+
+@keyframes ambientGridShift {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(80px, 80px, 0); }
+}
+
+.guild-ambient-filaments {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.65;
+}
+
+.ambient-filament {
+  animation: ambientFilamentFlow 24s linear infinite;
+}
+.filament-right {
+  animation-duration: 32s;
+  animation-direction: reverse;
+}
+
+@keyframes ambientFilamentFlow {
+  from { stroke-dashoffset: 480; }
+  to { stroke-dashoffset: 0; }
+}
+
+/* Floating Gold & Warm Ivory Particles */
+.guild-ambient-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.ambient-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #D6AD54;
+  opacity: 0;
+  animation: particleFloat 14s ease-in-out infinite;
+}
+
+.p-1  { top: 8%;  left: 12%; animation-delay: 0s;   animation-duration: 16s; width: 3.5px; height: 3.5px; }
+.p-2  { top: 18%; left: 85%; animation-delay: 2s;   animation-duration: 18s; background: #FFF8E8; }
+.p-3  { top: 32%; left: 24%; animation-delay: 4.5s; animation-duration: 15s; }
+.p-4  { top: 44%; left: 78%; animation-delay: 1.2s; animation-duration: 20s; width: 4px; height: 4px; }
+.p-5  { top: 56%; left: 16%; animation-delay: 6s;   animation-duration: 17s; background: #FFF8E8; }
+.p-6  { top: 68%; left: 90%; animation-delay: 3.5s; animation-duration: 19s; }
+.p-7  { top: 78%; left: 30%; animation-delay: 5s;   animation-duration: 21s; width: 3px; height: 3px; }
+.p-8  { top: 88%; left: 72%; animation-delay: 7s;   animation-duration: 16s; background: #FFF8E8; }
+.p-9  { top: 25%; left: 50%; animation-delay: 8s;   animation-duration: 22s; }
+.p-10 { top: 62%; left: 45%; animation-delay: 4s;   animation-duration: 18s; }
+.p-11 { top: 92%; left: 18%; animation-delay: 9s;   animation-duration: 15s; }
+.p-12 { top: 38%; left: 92%; animation-delay: 6.5s; animation-duration: 17s; }
+
+@keyframes particleFloat {
+  0%, 100% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+  }
+  20% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.55;
+    transform: translate3d(18px, -24px, 0);
+  }
+  80% {
+    opacity: 0.25;
+  }
+}
+
+/* Occasional Soft Light Sweep */
+.guild-ambient-light-sweep {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(214, 173, 84, 0.02) 40%,
+    rgba(255, 248, 232, 0.045) 50%,
+    rgba(214, 173, 84, 0.02) 60%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  animation: ambientLightSweep 20s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes ambientLightSweep {
+  0%, 80% { left: -100%; opacity: 0; }
+  85% { opacity: 1; }
+  100% { left: 200%; opacity: 0; }
+}
+
+/* --------------------------------------------------------------------------
+   2. SOPHISTICATED 3D STAGE & CURSOR PARALLAX
+   -------------------------------------------------------------------------- */
+.guild-stage-frame {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.guild-stage-sheen {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  mix-blend-mode: screen;
+  border-radius: inherit;
+}
+
+.guild-stage-overlay-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Corner Editorial Brackets on Hover */
+.guild-stage-brackets {
+  position: absolute;
+  inset: 10px;
+  pointer-events: none;
+  z-index: 4;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.guild-stage-frame:hover .guild-stage-brackets,
+.guild-stage-frame.is-interactive-hovered .guild-stage-brackets {
+  opacity: 1;
+}
+
+.stage-corner {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: rgba(214, 173, 84, 0.7);
+  border-style: solid;
+  border-width: 0;
+}
+.corner-tl { top: 0; left: 0; border-top-width: 1.5px; border-left-width: 1.5px; }
+.corner-tr { top: 0; right: 0; border-top-width: 1.5px; border-right-width: 1.5px; }
+.corner-bl { bottom: 0; left: 0; border-bottom-width: 1.5px; border-left-width: 1.5px; }
+.corner-br { bottom: 0; right: 0; border-bottom-width: 1.5px; border-right-width: 1.5px; }
+
+/* --------------------------------------------------------------------------
+   3. REFINED MONUMENTAL TYPOGRAPHY & STAGGERED REVEALS
+   -------------------------------------------------------------------------- */
+.guild-title-word {
+  display: inline-block;
+  transform: translateY(22px);
+  opacity: 0;
+  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+  will-change: transform, opacity;
+}
+
+.guild-title-line:nth-child(1) .guild-title-word {
+  transition-delay: 0.12s;
+}
+
+.guild-title-line:nth-child(2) .guild-title-word {
+  transition-delay: 0.24s;
+}
+
+.guild-panel.is-active .guild-title-word,
+.guild-panel.is-in-view .guild-title-word {
+  transform: translateY(0) !important;
+  opacity: 1 !important;
+}
+
+/* Gold Accent Transition on Selected Words */
+.guild-title-accent {
+  color: var(--guild-gold, #D6B33F) !important;
+  font-style: italic;
+  position: relative;
+  transition: color 0.5s ease, filter 0.5s ease;
+}
+
+.guild-panel:hover .guild-title-accent {
+  filter: drop-shadow(0 0 16px rgba(214, 173, 84, 0.32));
+}
+
+.guild-title-split-crew {
+  font-style: italic;
+  color: var(--guild-gold, #D6B33F);
+}
+
+.fusion-x-glyph {
+  font-style: italic;
+  color: var(--guild-gold, #D6B33F);
+  font-family: "GFS Didot", "Bodoni Moda", serif;
+}
+
+/* --------------------------------------------------------------------------
+   4. TECHNOLOGY LABELS & DOMAIN PILLS HOVER INTERACTION
+   -------------------------------------------------------------------------- */
+.guild-hero-domains-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  margin: 18px 0 22px;
+}
+
+.guild-hero-domain-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  background: rgba(16, 43, 76, 0.035);
+  border: 1px solid rgba(16, 43, 76, 0.12);
+  border-radius: 2px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--guild-navy, #102B4C);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  cursor: default;
+}
+
+.guild-hero-domain-pill::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--guild-burgundy, #8D1022), var(--guild-gold, #D6AD54));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.guild-hero-domain-pill:hover {
+  background: #FFFFFF;
+  border-color: rgba(214, 173, 84, 0.6);
+  color: var(--guild-burgundy, #8D1022);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(16, 43, 76, 0.08);
+}
+
+.guild-hero-domain-pill:hover::after {
+  transform: scaleX(1);
+}
+
+/* --------------------------------------------------------------------------
+   5. PERFORMANCE & REDUCED MOTION SAFEGUARDS
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .guild-ambient-grid,
+  .ambient-filament,
+  .ambient-particle,
+  .guild-ambient-light-sweep,
+  .devs-bridge-pulse,
+  .devs-code-glyph,
+  .intel-resonance-wave,
+  .algo-shortest-path-beam,
+  .fusion-core-float,
+  .fusion-symbol-glyph {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .guild-stage-frame {
+    transform: none !important;
+    transition: none !important;
+  }
+}

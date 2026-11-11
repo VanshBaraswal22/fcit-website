@@ -1,0 +1,41 @@
+/* ==========================================================================
+   FCIT EDITORIAL — TYPOGRAPHY SYSTEM
+   Theme: Luxury High-Fashion Editorial meets Technical Rigor
+   Curated Typefaces:
+   1. Bodoni Moda (Display / Hero & Section Titles)
+   2. Cormorant Garamond / Newsreader (Classical Literary Serif Alternates)
+   3. Alegreya Sans (Humanist Editorial Sans for Body & Navigation)
+   4. IBM Plex Mono (Technical Folios, Citations & Metadata)
+   ========================================================================== */
+
+/* GFS Didot — High-Fashion Didone Display (Preferred Combination) */
+@import '@fontsource/gfs-didot/index.css';
+
+/* Bodoni Moda — Didone Luxury Editorial Display */
+@import '@fontsource/bodoni-moda/latin-400.css';
+@import '@fontsource/bodoni-moda/latin-400-italic.css';
+@import '@fontsource/bodoni-moda/latin-500.css';
+@import '@fontsource/bodoni-moda/latin-500-italic.css';
+@import '@fontsource/bodoni-moda/latin-600.css';
+@import '@fontsource/bodoni-moda/latin-700.css';
+
+/* Cormorant Garamond — Classical Fine-Book Alternate */
+@import '@fontsource/cormorant-garamond/latin-400.css';
+@import '@fontsource/cormorant-garamond/latin-400-italic.css';
+@import '@fontsource/cormorant-garamond/latin-600.css';
+
+/* Newsreader — Contemporary Editorial Serif */
+@import '@fontsource/newsreader/latin-400.css';
+@import '@fontsource/newsreader/latin-400-italic.css';
+@import '@fontsource/newsreader/latin-500.css';
+
+/* Alegreya Sans — Warm Humanist Body & Navigation */
+@import '@fontsource/alegreya-sans/latin-300.css';
+@import '@fontsource/alegreya-sans/latin-400.css';
+@import '@fontsource/alegreya-sans/latin-400-italic.css';
+@import '@fontsource/alegreya-sans/latin-500.css';
+@import '@fontsource/alegreya-sans/latin-700.css';
+
+/* IBM Plex Mono — Precision Technical Typography */
+@import '@fontsource/ibm-plex-mono/latin-400.css';
+@import '@fontsource/ibm-plex-mono/latin-600.css';

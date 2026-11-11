@@ -1,0 +1,254 @@
+/* ==========================================================================
+   FCIT DESIGN SYSTEM — EXPERIMENTAL TEXTURES & PRINT FINISHES
+   STRICT 3-COLOUR FAMILIES: WHITE/IVORY · YELLOW/GOLD · RED/CRIMSON
+   ========================================================================== */
+
+/* 1. PAPER GRAIN (LIGHTWEIGHT SVG NOISE DATA URI) */
+.paper-grain {
+  position: relative;
+}
+.paper-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.055;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* 2. DELICATE PAPER FIBRES (ABOUT & EDITORIAL SECTIONS) */
+.paper-fibres {
+  position: relative;
+}
+.paper-fibres::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.04;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='fibreFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04 0.95' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23fibreFilter)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* 3. SCREEN-PRINT GRAIN & RETRO TONE */
+.screenprint-grain {
+  position: relative;
+}
+.screenprint-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.06;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* 4. HALFTONE PATTERNS (SVG DOT SCREENS) */
+.halftone-screen {
+  background-image: radial-gradient(circle, var(--color-ink-dark) 18%, transparent 20%), radial-gradient(circle, var(--color-ink-dark) 18%, transparent 20%);
+  background-size: 8px 8px;
+  background-position: 0 0, 4px 4px;
+  opacity: 0.06;
+}
+
+.halftone-screen-crimson {
+  background-image: radial-gradient(circle, var(--color-primary-crimson) 22%, transparent 24%), radial-gradient(circle, var(--color-primary-crimson) 22%, transparent 24%);
+  background-size: 10px 10px;
+  background-position: 0 0, 5px 5px;
+  opacity: 0.1;
+}
+
+.halftone-corner {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  pointer-events: none;
+  background-image: radial-gradient(circle, var(--color-ink-dark) 1.5px, transparent 1.5px);
+  background-size: 10px 10px;
+  opacity: 0.12;
+  mask-image: radial-gradient(circle at 0% 0%, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(circle at 0% 0%, black 30%, transparent 75%);
+}
+
+.halftone-corner--br {
+  right: 0;
+  bottom: 0;
+  mask-image: radial-gradient(circle at 100% 100%, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(circle at 100% 100%, black 30%, transparent 75%);
+}
+
+/* 5. SCREEN-PRINT DUOTONE TREATMENTS (USING ONLY 3 APPROVED FAMILIES) */
+.screenprint-crimson {
+  position: relative;
+  overflow: hidden;
+}
+.screenprint-crimson img {
+  filter: contrast(130%) grayscale(100%);
+  mix-blend-mode: multiply;
+}
+.screenprint-crimson::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(179, 20, 25, 0.42), rgba(90, 15, 14, 0.65));
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.screenprint-gold {
+  position: relative;
+  overflow: hidden;
+}
+.screenprint-gold img {
+  filter: contrast(125%) grayscale(100%);
+  mix-blend-mode: multiply;
+}
+.screenprint-gold::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(214, 179, 63, 0.38), rgba(168, 137, 54, 0.58));
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.screenprint-monochrome img {
+  filter: grayscale(100%) contrast(120%) brightness(0.95);
+}
+
+/* INK MISREGISTRATION (SUBTLE CHROMATIC PRINT DETAIL) */
+.ink-misregistration {
+  text-shadow:
+    -1.5px -0.5px 0px rgba(179, 20, 25, 0.65),
+    1.5px 0.5px 0px rgba(214, 179, 63, 0.55);
+}
+
+/* 6. PRINT REGISTRATION MARKS (ARCHIVAL MARKS) */
+.reg-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 1;
+  color: var(--color-ink-graphite);
+  user-select: none;
+}
+
+.reg-crosshair {
+  width: 16px;
+  height: 16px;
+  position: relative;
+}
+.reg-crosshair::before, .reg-crosshair::after {
+  content: "";
+  position: absolute;
+  background: currentColor;
+}
+.reg-crosshair::before {
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  transform: translateY(-50%);
+}
+.reg-crosshair::after {
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  transform: translateX(-50%);
+}
+.reg-crosshair-circle {
+  position: absolute;
+  inset: 2px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+}
+
+.cmyk-swatches {
+  display: inline-flex;
+  gap: 3px;
+  align-items: center;
+}
+.cmyk-chip {
+  width: 7px;
+  height: 7px;
+  border: 1px solid rgba(22, 20, 18, 0.2);
+}
+
+/* 7. RUBBER STAMP & HERITAGE SEALS */
+.stamp-seal {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  border: 2px solid var(--color-primary-crimson);
+  color: var(--color-primary-crimson);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transform: rotate(-3deg);
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 1px var(--color-primary-crimson);
+  background: rgba(179, 20, 25, 0.05);
+}
+
+.stamp-seal--gold {
+  border-color: var(--color-aged-gold);
+  color: var(--color-aged-gold);
+  box-shadow: inset 0 0 0 1px var(--color-aged-gold);
+  background: rgba(214, 179, 63, 0.08);
+  transform: rotate(2deg);
+}
+
+.stamp-seal--dark {
+  border-color: var(--color-warm-ivory);
+  color: var(--color-warm-ivory);
+  box-shadow: inset 0 0 0 1px var(--color-warm-ivory);
+  background: rgba(255, 248, 232, 0.08);
+}
+
+/* 8. DISTRESSED & EDITORIAL BORDERS */
+.border-editorial-double {
+  border-top: 3px double var(--border-medium);
+  border-bottom: 3px double var(--border-medium);
+}
+.border-editorial-top {
+  border-top: 1px solid var(--border-medium);
+}
+.border-editorial-bottom {
+  border-bottom: 1px solid var(--border-medium);
+}
+.border-editorial-box {
+  border: 1px solid var(--border-medium);
+}
+.border-dashed-fine {
+  border: 1px dashed var(--border-medium);
+}
+
+/* 9. THREE-FAMILY HARMONIOUS TONAL BLENDS */
+.bg-parchment-gradient {
+  background: linear-gradient(180deg, var(--color-warm-ivory) 0%, var(--color-antique-parchment) 100%);
+}
+.bg-cream-gold-tint {
+  background: linear-gradient(180deg, var(--color-soft-cream) 0%, var(--color-pale-gold) 100%);
+}
+.bg-crimson-oxblood {
+  background: linear-gradient(175deg, #7A1215 0%, #5A0F0E 60%, #420A09 100%);
+  color: var(--color-warm-ivory);
+}
+.bg-aged-paper-blend {
+  background: linear-gradient(160deg, var(--color-pure-white) 0%, var(--color-warm-ivory) 45%, var(--color-antique-parchment) 100%);
+}

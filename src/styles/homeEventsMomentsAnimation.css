@@ -1,0 +1,70 @@
+/* ==========================================================================
+   FCIT EVENTS & MOMENTS — EDITORIAL REVEAL ARCHITECTURE
+   Follows strict animation rules:
+   - GPU-accelerated: transform, opacity, clip-path only
+   - Tokens: warm ivory (#FFF8E8), crimson (#B31419 / #850713), gold (#D6B33F), charcoal (#292827)
+   - Content visible by default without JS
+   - Pointer effects gated with (hover: hover) and (pointer: fine)
+   ========================================================================== */
+
+.home-featured-event-card {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  will-change: transform, opacity;
+}
+
+.home-moments-photo-card {
+  position: relative;
+  will-change: transform;
+}
+
+.home-moments-img-wrap {
+  position: relative;
+  overflow: hidden;
+  height: 96px;
+  background-color: var(--color-soft-cream, #F5F0E5);
+  border: 1px solid var(--border-light, rgba(41, 40, 39, 0.10));
+}
+
+/* Default state: fully visible without JS */
+.home-moments-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 1;
+  transform: scale(1);
+  clip-path: inset(0 0 0 0);
+  will-change: clip-path, transform, opacity;
+}
+
+.home-moments-caption {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  will-change: transform, opacity;
+}
+
+/* Pointer Hover Effects — Gated for fine pointer only (Rule 4) */
+@media (hover: hover) and (pointer: fine) {
+  .home-moments-photo-card {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  }
+
+  .home-moments-photo-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(41, 40, 39, 0.08);
+  }
+
+  .home-moments-photo-card:hover .home-moments-img {
+    transform: scale(1.04);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+/* Mobile & Touch Fallback: No hover shift on touch */
+@media (max-width: 768px) {
+  .home-moments-photo-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}

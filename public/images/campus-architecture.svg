@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" fill="none">
+  <rect width="1200" height="900" fill="#e7dfc9"/>
+  <rect y="615" width="1200" height="285" fill="#b9ad91"/>
+  <circle cx="930" cy="180" r="94" fill="#d6b33f" opacity=".85"/>
+  <path d="M0 635 1200 590v55L0 700z" fill="#102b4c" opacity=".12"/>
+  <path d="M120 625V355l260-125 260 125v270H120Z" fill="#f7f3e8" stroke="#102b4c" stroke-width="9"/>
+  <path d="M85 365 380 210l295 155" stroke="#102b4c" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M168 398h424M168 488h424M168 578h424" stroke="#c9bfa7" stroke-width="7"/>
+  <g fill="#102b4c">
+    <rect x="185" y="420" width="62" height="52"/><rect x="282" y="420" width="62" height="52"/><rect x="379" y="420" width="62" height="52"/><rect x="476" y="420" width="62" height="52"/>
+    <rect x="185" y="510" width="62" height="52"/><rect x="282" y="510" width="62" height="52"/><rect x="379" y="510" width="62" height="52"/><rect x="476" y="510" width="62" height="52"/>
+  </g>
+  <path d="M330 625V560q0-57 50-57t50 57v65" fill="#d6b33f" stroke="#102b4c" stroke-width="8"/>
+  <path d="M745 625V290l178-88 180 88v335" fill="#d4c9ae" stroke="#102b4c" stroke-width="9"/>
+  <path d="m715 294 208-104 210 104" stroke="#102b4c" stroke-width="17" stroke-linejoin="round"/>
+  <g fill="#102b4c"><rect x="790" y="330" width="56" height="64"/><rect x="885" y="330" width="56" height="64"/><rect x="980" y="330" width="56" height="64"/><rect x="790" y="430" width="56" height="64"/><rect x="885" y="430" width="56" height="64"/><rect x="980" y="430" width="56" height="64"/></g>
+  <path d="M0 760h1200" stroke="#102b4c" stroke-width="3" opacity=".25"/>
+  <g fill="#102b4c" opacity=".85"><path d="M70 650h12v125H70zM54 672h44v12H54z"/><path d="M1040 638h12v140h-12zM1025 660h44v12h-44z"/><path d="M1110 660h9v110h-9zM1098 681h34v9h-34z"/></g>
+  <text x="64" y="836" fill="#102b4c" font-family="Georgia,serif" font-size="30" letter-spacing="5">A PLACE TO LEARN, BUILD &amp; BELONG</text>
+  <text x="1115" y="835" fill="#102b4c" font-family="monospace" font-size="18" text-anchor="end">DEMO ARTWORK / 01</text>
+</svg>

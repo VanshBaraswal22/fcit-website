@@ -1,0 +1,134 @@
+/* ==========================================================================
+   FCIT DESIGN SYSTEM — DESIGN TOKENS
+   THEME: HERITAGE EDITORIAL MEETS MODERN TECHNOLOGY
+   HARCOURT BUTLER TECHNICAL UNIVERSITY, KANPUR
+
+   STRICT COLOUR & TYPOGRAPHY SYSTEM:
+   1. Ivory/cream ~55%: backgrounds alternating #FFF8E8 and #F5F0E5
+   2. Heritage gold ~28% (#D6B33F): rules, borders, numbers, icons, underlines, shapes. Never body text on ivory.
+   3. Crimson ~10% (#B31419): Join button, active nav item, one italic highlight word per headline, links.
+   4. Very dark navy ~5% (#0B1F3F): main text colour (replaces near-black), small accents, logo draw, footer background.
+   Rule: Red and navy must never touch directly. Footer is navy with only gold and ivory elements.
+   ========================================================================== */
+
+:root {
+  /* ========================================================================
+     COLOUR FAMILY 1: IVORY / CREAM (~55% visual distribution)
+     Backgrounds alternating #FFF8E8 (Warm Ivory) and #F5F0E5 (Soft Cream)
+     ======================================================================== */
+  --color-warm-ivory:        #FFF8E8;
+  --color-soft-cream:        #F5F0E5;
+  --color-antique-parchment: #FFF8E8;
+  --color-pure-white:        #FFFFFF;
+
+  --bg-primary:              #FFF8E8;
+  --bg-secondary:            #F5F0E5;
+  --bg-ivory:                #FFF8E8;
+  --bg-cream:                #F5F0E5;
+
+  /* ========================================================================
+     COLOUR FAMILY 2: HERITAGE GOLD (~28% visual distribution)
+     Rules, borders, numbers, icons, underlines, shapes (#D6B33F).
+     STRICT RULE: Never body text on ivory.
+     ======================================================================== */
+  --color-heritage-gold:     #D6B33F;
+  --color-muted-gold:        #B99A48;
+  --color-pale-gold:         #E8D69B;
+  --color-aged-gold:         #A88936;
+
+  --border-gold:             var(--color-heritage-gold);
+  --border-gold-subtle:      rgba(214, 179, 63, 0.4);
+  --bg-gold-tint:            rgba(214, 179, 63, 0.08);
+
+  /* ========================================================================
+     COLOUR FAMILY 3: CRIMSON (~10% accent distribution)
+     Join button, active nav item, one italic highlight word per headline, links.
+     ======================================================================== */
+  --color-primary-crimson:   #B31419;
+  --color-crimson-hover:     #8E0F13;
+  --color-muted-crimson:     #C15B5B;
+  --color-soft-red:          #D97777;
+
+  --color-crimson-red:       var(--color-primary-crimson);
+  --border-crimson:          var(--color-primary-crimson);
+  --bg-crimson-tint:         rgba(179, 20, 25, 0.06);
+
+  /* ========================================================================
+     CONTEMPORARY TYPOGRAPHY & INK SYSTEM
+     Primary text: #292827
+     Secondary / muted text: #636260
+     No deep navy as website design colour; original FCIT logo preserved.
+     ======================================================================== */
+  --color-carbon-black:      #292827;
+  --color-ink-dark:          #292827;
+  --color-ink-charcoal:      #636260;
+  --color-ink-graphite:      #7A7977;
+  --color-charcoal:          #636260;
+  --color-graphite:          #7A7977;
+
+  /* Semantic surface roles */
+  --text-main:               #292827;
+  --text-body:               #292827;
+  --text-muted:              #636260;
+  --text-light:              var(--color-warm-ivory);
+  --text-accent-crimson:     var(--color-primary-crimson);
+  --text-accent-gold:        var(--color-heritage-gold);
+
+  --bg-footer:               #222120;
+
+  --border-light:            rgba(41, 40, 39, 0.10);
+  --border-medium:           rgba(41, 40, 39, 0.18);
+  --border-strong:           rgba(41, 40, 39, 0.50);
+  --border-navy:             rgba(41, 40, 39, 0.18);
+
+  /* Legacy aliases redirected cleanly to neutral ink */
+  --color-dark-navy:         #222120;
+  --color-navy-muted:        #636260;
+  --color-navy-subtle:       #7A7977;
+
+  /* ========================================================================
+     TYPOGRAPHY FAMILIES (@fontsource self-hosted)
+     - Display / Headlines: Bodoni Moda (High-fashion Didone editorial serif)
+     - Alternate Literary: Cormorant Garamond / Newsreader
+     - Body / nav / buttons: Alegreya Sans (Humanist, fluid editorial sans)
+     - Technical values / codes: IBM Plex Mono
+     ======================================================================== */
+  --font-serif: "Bodoni Moda", "Newsreader", Georgia, "Times New Roman", serif;
+  --font-display: "Bodoni Moda", "Newsreader", serif;
+  --font-serif-alt: "Cormorant Garamond", "Newsreader", serif;
+  --font-sans:  "Alegreya Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body:  "Alegreya Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-plex:  "Alegreya Sans", sans-serif;
+  --font-mono:  "IBM Plex Mono", Consolas, monospace;
+
+  /* ========================================================================
+     FLUID TYPOGRAPHY SCALE with clamp(), 1.6 line-height, 60-70ch line lengths
+     ======================================================================== */
+  --font-size-hero:  clamp(2.8rem, 6.2vw, 5.6rem);
+  --font-size-h1:    clamp(2.4rem, 5.2vw, 4.4rem);
+  --font-size-h2:    clamp(1.85rem, 3.6vw, 3rem);
+  --font-size-h3:    clamp(1.35rem, 2.2vw, 1.95rem);
+  --font-size-h4:    clamp(1.1rem, 1.6vw, 1.45rem);
+  --font-size-lead:  clamp(1.05rem, 1.4vw, 1.25rem);
+  --font-size-body:  clamp(1rem, 1.05vw, 1.0625rem);
+  --font-size-sm:    clamp(0.8125rem, 0.85vw, 0.875rem);
+  --font-size-xs:    clamp(0.6875rem, 0.72vw, 0.75rem);
+
+  --line-height-body:    1.6;
+  --line-height-heading: 1.08;
+  --line-height-card:    1.22;
+
+  --measure-prose:       65ch; /* 60-70 characters per line */
+
+  /* Layout & Scaling */
+  --page-pad:        clamp(18px, 4.8vw, 84px);
+  --max-width:       1220px;
+  --header-height:   70px;
+
+  /* Interaction Variables */
+  --scroll-progress: 0%;
+  --mouse-x:         50vw;
+  --mouse-y:         50vh;
+
+  color-scheme: light;
+}

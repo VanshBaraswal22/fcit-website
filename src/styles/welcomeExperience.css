@@ -1,0 +1,332 @@
+/* ==========================================================================
+   FCIT WELCOME INTRO EXPERIENCE STYLES
+   Atmospheric, luminous cloud environment with layered depth, warm ivory,
+   subtle crimson/gold tones, and a circular FCIT brand mark.
+   ========================================================================== */
+
+.welcome-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999;
+  background-color: #FFF8E8;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(24px, 4vw, 48px);
+  overflow: hidden;
+  user-select: none;
+  cursor: default;
+}
+
+/* Atmospheric Sun Glow and Subtle Crimson Horizon */
+.welcome-ambient-sky {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 248, 232, 0.7) 45%, rgba(245, 240, 229, 0.9) 80%),
+    radial-gradient(circle at 50% 100%, rgba(179, 20, 25, 0.08) 0%, transparent 60%),
+    #FFF8E8;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Cloud Environment Container */
+.welcome-clouds-wrapper {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.welcome-cloud-layer {
+  position: absolute;
+  width: 140%;
+  height: 120%;
+  top: -10%;
+  left: -20%;
+  will-change: transform;
+}
+
+.welcome-cloud-layer--back {
+  opacity: 0.55;
+  filter: blur(14px);
+  animation: welcomeCloudDriftBack 48s ease-in-out infinite alternate;
+}
+
+.welcome-cloud-layer--mid {
+  opacity: 0.8;
+  filter: blur(5px);
+  animation: welcomeCloudDriftMid 36s ease-in-out infinite alternate;
+}
+
+.welcome-cloud-layer--front {
+  opacity: 0.45;
+  filter: blur(16px);
+  animation: welcomeCloudDriftFront 28s ease-in-out infinite alternate;
+  top: 15%;
+}
+
+@keyframes welcomeCloudDriftBack {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-35px, 15px, 0) scale(1.04); }
+  100% { transform: translate3d(30px, -10px, 0) scale(0.98); }
+}
+
+@keyframes welcomeCloudDriftMid {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(40px, -20px, 0) scale(1.05); }
+  100% { transform: translate3d(-30px, 15px, 0) scale(1.01); }
+}
+
+@keyframes welcomeCloudDriftFront {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-45px, 20px, 0) scale(1.08); }
+  100% { transform: translate3d(35px, -15px, 0) scale(1.02); }
+}
+
+/* Fine Golden & Ivory Dust Particles */
+.welcome-particles-canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.welcome-particle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #D6B33F;
+  opacity: 0.35;
+  will-change: transform, opacity;
+  animation: welcomeParticleFloat 12s ease-in-out infinite alternate;
+}
+
+@keyframes welcomeParticleFloat {
+  0% { transform: translateY(0px) scale(0.8); opacity: 0.2; }
+  50% { transform: translateY(-24px) scale(1.2); opacity: 0.55; }
+  100% { transform: translateY(12px) scale(0.9); opacity: 0.25; }
+}
+
+/* Top Bar: Skip Intro Button */
+.welcome-top-bar {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.welcome-skip-btn {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: rgba(255, 248, 232, 0.92);
+  border: 1px solid var(--color-heritage-gold, #D6B33F);
+  color: #292827;
+  padding: 8px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: blur(10px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(41, 40, 39, 0.06);
+}
+
+.welcome-skip-btn:hover {
+  background: #B31419;
+  border-color: #B31419;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(179, 20, 25, 0.25);
+}
+
+/* Center Content Stage */
+.welcome-center-stage {
+  position: relative;
+  z-index: 10;
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+}
+
+/* Truly Circular Logo Container */
+.welcome-logo-circle-wrapper {
+  position: relative;
+  width: clamp(100px, 14vw, 150px);
+  height: clamp(100px, 14vw, 150px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: clamp(18px, 3vw, 28px);
+  filter: drop-shadow(0 14px 32px rgba(214, 179, 63, 0.28));
+  will-change: transform, opacity;
+}
+
+.welcome-logo-circle-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  display: block;
+}
+
+/* Institutional Subtitle */
+.welcome-institution-text {
+  font-family: var(--font-mono, monospace);
+  font-size: clamp(0.6875rem, 1.1vw, 0.8125rem);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #B31419;
+  margin-bottom: 12px;
+  font-weight: 600;
+  will-change: transform, opacity;
+}
+
+/* Main Welcome Statement (Newsreader Serif) */
+.welcome-main-headline {
+  font-family: var(--font-serif, "Newsreader", serif);
+  font-size: clamp(2.4rem, 6.5vw, 5.2rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #292827;
+  margin: 0 0 16px 0;
+  text-transform: uppercase;
+}
+
+.welcome-main-headline .headline-mask {
+  display: block;
+  overflow: hidden;
+}
+
+.welcome-main-headline .headline-line {
+  display: block;
+  will-change: transform, opacity;
+}
+
+.welcome-main-headline .crimson-italic {
+  color: #B31419;
+  font-style: italic;
+}
+
+/* Secondary Narrative Line */
+.welcome-secondary-line {
+  font-family: var(--font-body, "IBM Plex Sans", sans-serif);
+  font-size: clamp(0.95rem, 1.6vw, 1.25rem);
+  color: #636260;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0;
+  max-width: 640px;
+  font-weight: 500;
+  will-change: transform, opacity;
+}
+
+/* Traveling Light Accent Line */
+.welcome-accent-line-box {
+  width: clamp(140px, 20vw, 240px);
+  height: 2px;
+  background: rgba(214, 179, 63, 0.25);
+  margin: clamp(20px, 3vw, 32px) auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.welcome-accent-line-glow {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #B31419, #D6B33F, transparent);
+  animation: welcomeLightSweep 3s ease-in-out infinite;
+}
+
+@keyframes welcomeLightSweep {
+  0% { left: -60%; }
+  100% { left: 140%; }
+}
+
+/* Bottom Bar: Enter FCIT Primary CTA */
+.welcome-bottom-bar {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.welcome-enter-btn {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  background: #B31419;
+  color: #FFFFFF;
+  border: 1px solid #D6B33F;
+  padding: 14px 34px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 10px 30px rgba(179, 20, 25, 0.28);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.welcome-enter-btn:hover {
+  background: #8E0F13;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 14px 40px rgba(179, 20, 25, 0.4);
+}
+
+.welcome-enter-btn:focus-visible {
+  outline: 2px solid #B31419;
+  outline-offset: 4px;
+}
+
+.welcome-enter-btn-arrow {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.welcome-enter-btn:hover .welcome-enter-btn-arrow {
+  transform: translateX(4px);
+}
+
+.welcome-auto-countdown {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.625rem;
+  letter-spacing: 0.16em;
+  color: #636260;
+  text-transform: uppercase;
+}
+
+/* Reduced Motion Fallback */
+@media (prefers-reduced-motion: reduce) {
+  .welcome-cloud-layer,
+  .welcome-particle,
+  .welcome-accent-line-glow {
+    animation: none !important;
+  }
+}

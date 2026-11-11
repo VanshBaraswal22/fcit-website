@@ -1,0 +1,225 @@
+/**
+ * FCIT WORKING GUILDS — COMPACT ELEMENTAL NAVIGATION CARDS
+ * Replaces the old Explore button with four horizontally aligned guild cards:
+ * 1. BURN (Dev's Guild)
+ * 2. FLY (Intelligence Guild)
+ * 3. DIVE (Fusion X)
+ * 4. RUN (AlgoCrew)
+ */
+
+.compact-guild-nav-container {
+  margin-top: clamp(24px, 3vh, 32px);
+  width: 100%;
+  max-width: 680px;
+}
+
+/* 4-Card Horizontal Row on Desktop */
+.compact-guild-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  align-items: stretch;
+}
+
+/* Individual Compact Card */
+.compact-guild-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(214, 173, 84, 0.32);
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 6px rgba(7, 24, 39, 0.04);
+}
+
+.compact-guild-card:hover {
+  transform: translateY(-2px);
+  background-color: #FFFDF9;
+  border-color: var(--card-theme);
+  box-shadow: 0 6px 16px rgba(7, 24, 39, 0.08), 0 0 12px rgba(var(--card-theme), 0.12);
+}
+
+.compact-guild-card:focus-visible {
+  outline: 2px solid var(--card-theme);
+  outline-offset: 2px;
+}
+
+/* Active Guild Indicator */
+.compact-guild-card.is-active {
+  background-color: #FFFDF7;
+  border-color: var(--card-theme);
+  box-shadow: 0 4px 12px rgba(7, 24, 39, 0.06), inset 0 0 0 1px var(--card-theme);
+}
+
+.compact-card-active-pip {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--card-theme);
+  box-shadow: 0 0 6px var(--card-theme);
+}
+
+/* Icon Box */
+.compact-card-icon-wrap {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  background-color: rgba(214, 173, 84, 0.08);
+  border: 1px solid rgba(214, 173, 84, 0.2);
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.compact-guild-card:hover .compact-card-icon-wrap {
+  transform: scale(1.08);
+  background-color: rgba(255, 255, 255, 0.9);
+  border-color: var(--card-theme);
+}
+
+/* Specific Icon Hover Animations */
+.compact-elem-icon {
+  display: block;
+  overflow: visible;
+}
+
+.compact-guild-card--fire:hover .flame-outer-tongue {
+  transform-origin: 16px 28px;
+  animation: flameFlicker 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes flameFlicker {
+  0% { transform: scale(1) rotate(0deg); }
+  100% { transform: scale(1.06) rotate(2deg); }
+}
+
+.compact-guild-card--air:hover .wind-trail-front {
+  animation: windBreeze 1s ease-in-out infinite;
+}
+
+@keyframes windBreeze {
+  0% { transform: translateX(0); opacity: 0.6; }
+  50% { transform: translateX(2px); opacity: 1; }
+  100% { transform: translateX(0); opacity: 0.6; }
+}
+
+.compact-guild-card--water:hover .water-ripple-outer {
+  animation: ripplePulse 1.2s ease-in-out infinite;
+}
+
+@keyframes ripplePulse {
+  0% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 0.4; }
+}
+
+.compact-guild-card--earth:hover .stone-cluster {
+  animation: stoneSheen 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes stoneSheen {
+  0% { filter: brightness(1); }
+  100% { filter: brightness(1.15); }
+}
+
+/* Typography Inside Card */
+.compact-card-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.compact-card-label {
+  font-family: 'Oswald', 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.1;
+  color: #071827;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.compact-guild-card:hover .compact-card-label {
+  color: var(--card-theme);
+}
+
+.compact-card-guild {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: #718096;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 2px;
+}
+
+/* -------------------------------------------------------------
+ * Responsiveness
+ * ------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .compact-guild-nav-container {
+    max-width: 100%;
+  }
+
+  .compact-guild-card {
+    padding: 8px 10px;
+    gap: 8px;
+  }
+
+  .compact-card-label {
+    font-size: 13px;
+  }
+
+  .compact-card-guild {
+    font-size: 9.5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .compact-guild-nav-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .compact-guild-card {
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .compact-guild-nav-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .compact-card-icon-wrap {
+    width: 28px;
+    height: 28px;
+  }
+
+  .compact-elem-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .compact-card-label {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+
+  .compact-card-guild {
+    font-size: 9px;
+  }
+}

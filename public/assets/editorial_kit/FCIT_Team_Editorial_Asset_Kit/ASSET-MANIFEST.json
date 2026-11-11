@@ -1,0 +1,17 @@
+{
+  "textures": [
+    "textures/ivory-paper-grain.webp",
+    "textures/speckled-paper.webp",
+    "textures/charcoal-grain.webp"
+  ],
+  "overlays": [
+    "overlays/crimson-sweep.svg",
+    "overlays/portrait-frame.svg",
+    "overlays/gold-editorial-rule.svg",
+    "overlays/halftone-grid.svg",
+    "overlays/paper-card-shadow.svg",
+    "overlays/crimson-ribbon-reference.webp",
+    "overlays/gold-dot-grid-reference.webp"
+  ],
+  "reference_only": "reference/editorial-layout-reference.png"
+}

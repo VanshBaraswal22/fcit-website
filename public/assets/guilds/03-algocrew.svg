@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" fill="none">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#E7CE79"/><stop offset="1" stop-color="#B68A2D"/></linearGradient>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" stroke="#B99A48" stroke-width=".8" opacity=".25"/></pattern>
+  </defs>
+  <path d="M92 76H808V544H92Z" fill="url(#grid)" opacity=".45"/>
+  <path d="M110 490L250 355L365 425L500 248L630 326L788 142" stroke="#102B4C" stroke-width="2" opacity=".2" stroke-dasharray="4 9"/>
+  <!-- graph edges -->
+  <g stroke="#102B4C" stroke-width="2.5" opacity=".72">
+    <path d="M110 430L250 355L365 425L500 248L630 326L788 142M110 430L225 190L365 425M225 190L380 110L500 248M380 110L590 115L630 326M590 115L788 142M250 355L340 525L520 500L630 326M365 425L520 500M500 248L690 465L788 142M110 430L340 525"/>
+  </g>
+  <!-- selected path -->
+  <path d="M110 430L250 355L500 248L630 326L788 142" stroke="url(#gold)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- branch edges -->
+  <g stroke="#B99A48" stroke-width="1.8" opacity=".65"><path d="M250 355L225 190M500 248L590 115M630 326L690 465M365 425L340 525L520 500"/></g>
+  <!-- vertices -->
+  <g fill="#FFF8E8" stroke="#102B4C" stroke-width="3">
+    <circle cx="110" cy="430" r="12"/><circle cx="225" cy="190" r="11"/><circle cx="250" cy="355" r="15"/><circle cx="380" cy="110" r="11"/><circle cx="365" cy="425" r="13"/><circle cx="500" cy="248" r="16"/><circle cx="590" cy="115" r="10"/><circle cx="630" cy="326" r="15"/><circle cx="788" cy="142" r="13"/><circle cx="340" cy="525" r="10"/><circle cx="520" cy="500" r="12"/><circle cx="690" cy="465" r="10"/>
+  </g>
+  <g fill="url(#gold)" stroke="#102B4C" stroke-width="2">
+    <circle cx="110" cy="430" r="7"/><circle cx="250" cy="355" r="9"/><circle cx="500" cy="248" r="10"/><circle cx="630" cy="326" r="9"/><circle cx="788" cy="142" r="8"/>
+  </g>
+  <!-- algorithm branching marks -->
+  <g stroke="#102B4C" stroke-width="1.5" opacity=".65"><path d="M110 430H76M225 190V148M380 110L355 83M788 142L820 118M340 525V554M690 465L720 492"/><path d="M70 430L92 410M70 430L92 450M214 148L225 128L236 148M808 118L820 98L832 118"/></g>
+  <g fill="#B99A48"><circle cx="76" cy="430" r="4"/><circle cx="225" cy="128" r="4"/><circle cx="355" cy="83" r="4"/><circle cx="820" cy="98" r="4"/><circle cx="340" cy="554" r="4"/><circle cx="720" cy="492" r="4"/></g>
+  <circle cx="500" cy="248" r="33" stroke="#B99A48" stroke-width="1.5" opacity=".45"/><circle cx="630" cy="326" r="29" stroke="#B99A48" stroke-width="1.2" opacity=".35" stroke-dasharray="3 6"/>
+</svg>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" fill="none">
+  <defs>
+    <radialGradient id="core" cx="50%" cy="45%" r="60%"><stop stop-color="#E8CC75" stop-opacity=".38"/><stop offset="1" stop-color="#E8CC75" stop-opacity="0"/></radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#E6C96C"/><stop offset="1" stop-color="#B98D2F"/></linearGradient>
+  </defs>
+  <circle cx="450" cy="300" r="238" fill="url(#core)"/>
+  <ellipse cx="450" cy="300" rx="300" ry="176" stroke="#B99A48" stroke-width="1.3" opacity=".32" stroke-dasharray="3 10"/>
+  <ellipse cx="450" cy="300" rx="235" ry="265" stroke="#102B4C" stroke-width="1.2" opacity=".17" transform="rotate(34 450 300)"/>
+  <ellipse cx="450" cy="300" rx="235" ry="265" stroke="#B99A48" stroke-width="1.2" opacity=".3" transform="rotate(-34 450 300)"/>
+  <!-- neural network edges -->
+  <g stroke="#102B4C" stroke-width="1.8" opacity=".5">
+    <path d="M136 174L274 125L366 204L470 112L598 163L754 110M136 174L255 300L366 204L450 300L598 163L754 110M136 174L255 300L350 408L450 300L600 414L754 466M255 300L366 204L600 414M366 204L470 112L598 163L600 414M470 112L450 300L350 408L222 468M450 300L600 414L754 466M255 300L222 468M350 408L450 516L600 414"/>
+  </g>
+  <g stroke="#B99A48" stroke-width="2.4" opacity=".86">
+    <path d="M136 174L255 300L450 300L598 163L754 110M350 408L450 300L600 414L754 466"/>
+  </g>
+  <!-- nodes -->
+  <g fill="#FFF8E8" stroke="#102B4C" stroke-width="2.2">
+    <circle cx="136" cy="174" r="12"/><circle cx="274" cy="125" r="10"/><circle cx="366" cy="204" r="13"/><circle cx="470" cy="112" r="11"/><circle cx="598" cy="163" r="13"/><circle cx="754" cy="110" r="10"/>
+    <circle cx="255" cy="300" r="14"/><circle cx="450" cy="300" r="18"/><circle cx="350" cy="408" r="12"/><circle cx="600" cy="414" r="14"/><circle cx="754" cy="466" r="10"/><circle cx="222" cy="468" r="9"/><circle cx="450" cy="516" r="9"/>
+  </g>
+  <g fill="url(#gold)" stroke="#102B4C" stroke-width="1.8">
+    <circle cx="366" cy="204" r="8"/><circle cx="470" cy="112" r="7"/><circle cx="598" cy="163" r="8"/><circle cx="255" cy="300" r="9"/><circle cx="450" cy="300" r="12"/><circle cx="600" cy="414" r="9"/>
+  </g>
+  <!-- small signal rings -->
+  <g stroke="#B99A48" stroke-width="1.4" opacity=".7"><circle cx="450" cy="300" r="34"/><circle cx="450" cy="300" r="52" stroke-dasharray="2 8"/><path d="M450 240V212M450 388V360M390 300H362M538 300H510"/></g>
+  <g fill="#102B4C"><circle cx="136" cy="174" r="3"/><circle cx="754" cy="110" r="3"/><circle cx="222" cy="468" r="3"/></g>
+  <g stroke="#102B4C" stroke-width="1.2" opacity=".32"><path d="M92 300H808M450 52V568" stroke-dasharray="2 9"/></g>
+</svg>

@@ -1,0 +1,266 @@
+/* ==========================================================================
+   FCIT EDITORIAL NAVBAR ENTRANCE ANIMATION
+   Cinematic reveal sequence: Background -> Brand -> Nav Links -> Membership & Seal
+   Duration: 1200ms total
+   Easing: cubic-bezier(0.16, 1, 0.3, 1)
+   ========================================================================== */
+
+/* Ensure site header is always fixed outside normal document flow across all viewports */
+.site-header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 900 !important;
+}
+
+/* Zero reserved space during intro or on homepage */
+html.fcit-intro-pending .site-main-content,
+.site-main-content.is-home-layout,
+.site-main-content:has(.home-redesign),
+.home-redesign,
+.home-hero-curtain-pin,
+.fcit-atmosphere {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  top: 0 !important;
+}
+
+/* --------------------------------------------------------------------------
+   PHASE 0: PRE-ENTRANCE HIDDEN STATE (While Landing Intro is Active)
+   Completely hidden with 0 opacity, outside the viewport (-105%), no pointer events,
+   and 0 height so it reserves absolutely ZERO vertical space in layout.
+   Guarantees ZERO flash and ZERO layout gap during initial render and intro.
+   -------------------------------------------------------------------------- */
+html.fcit-intro-pending .site-header,
+.site-header.nav-hidden {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  max-height: 0 !important;
+  transform: translateY(-105%) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  overflow: hidden !important;
+  border: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  animation: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   PHASE 1: BACKGROUND ENTRANCE (0–350ms)
+   Starts completely outside the viewport (-105%) with opacity 0.
+   Smoothly slides down like an elegant sheet being unveiled.
+   -------------------------------------------------------------------------- */
+.site-header.nav-entrance {
+  transform: translateY(-105%);
+  opacity: 0;
+  visibility: visible;
+  animation: navSheetReveal 0.42s cubic-bezier(0.16, 1, 0.3, 1) 0s forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes navSheetReveal {
+  0% {
+    transform: translateY(-105%);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   PHASE 2: BRAND ENTRANCE (200–650ms)
+   FCIT crest logo fades in and moves gently upward into position.
+   Wordmark ("FCIT") and university subtitle ("HBTU KANPUR") enter with stagger.
+   -------------------------------------------------------------------------- */
+.site-header.nav-entrance .brand-editorial-logo {
+  opacity: 0;
+  transform: translateY(12px) scale(0.92);
+  animation: navBrandLogoReveal 0.44s cubic-bezier(0.16, 1, 0.3, 1) 0.20s forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes navBrandLogoReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.site-header.nav-entrance .brand-editorial-name {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: navBrandTextReveal 0.40s cubic-bezier(0.16, 1, 0.3, 1) 0.28s forwards;
+  will-change: transform, opacity;
+}
+
+.site-header.nav-entrance .brand-editorial-sub {
+  opacity: 0;
+  transform: translateY(6px);
+  animation: navBrandTextReveal 0.38s cubic-bezier(0.16, 1, 0.3, 1) 0.36s forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes navBrandTextReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   PHASE 3: NAVIGATION ENTRANCE (350–950ms)
+   Desktop links appear sequentially from left to right with subtle translation.
+   Active indicator unfolds after its corresponding link lands.
+   -------------------------------------------------------------------------- */
+.site-header.nav-entrance .nav-desktop > * {
+  opacity: 0;
+  transform: translateY(-8px);
+  animation: navLinkReveal 0.36s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+/* Sequential Stagger for Desktop Links */
+.site-header.nav-entrance .nav-desktop > *:nth-child(1) { animation-delay: 0.36s; }
+.site-header.nav-entrance .nav-desktop > *:nth-child(2) { animation-delay: 0.42s; }
+.site-header.nav-entrance .nav-desktop > *:nth-child(3) { animation-delay: 0.48s; }
+.site-header.nav-entrance .nav-desktop > *:nth-child(4) { animation-delay: 0.54s; }
+.site-header.nav-entrance .nav-desktop > *:nth-child(5) { animation-delay: 0.60s; }
+.site-header.nav-entrance .nav-desktop > *:nth-child(6) { animation-delay: 0.66s; }
+.site-header.nav-entrance .nav-desktop > *:nth-child(7) { animation-delay: 0.72s; }
+
+@keyframes navLinkReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Active navigation indicator delayed reveal */
+.site-header.nav-entrance .nav-link-editorial.is-active::after {
+  transform: scaleX(0);
+  animation: navActiveIndicatorReveal 0.32s cubic-bezier(0.16, 1, 0.3, 1) 0.82s forwards;
+  transform-origin: left;
+}
+
+@keyframes navActiveIndicatorReveal {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   PHASE 4: UNIVERSITY SEAL (750–1200ms)
+   University emblem enters last.
+   -------------------------------------------------------------------------- */
+
+.site-header.nav-entrance .header-hbtu-seal-link {
+  opacity: 0;
+  transform: scale(0.88) translateY(-6px);
+  animation: navSealReveal 0.34s cubic-bezier(0.16, 1, 0.3, 1) 0.92s forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes navSealReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.88) translateY(-6px);
+    border-left-color: transparent;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    border-left-color: rgba(41, 40, 39, 0.16);
+  }
+}
+
+/* Mobile Viewports */
+@media (max-width: 1079px) {
+  .site-header.nav-entrance .mobile-menu-btn {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.92);
+    animation: navMobileBtnReveal 0.36s cubic-bezier(0.16, 1, 0.3, 1) 0.44s forwards;
+    will-change: transform, opacity;
+  }
+
+  @keyframes navMobileBtnReveal {
+    0% {
+      opacity: 0;
+      transform: translateY(-8px) scale(0.92);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .site-header.nav-entrance .header-hbtu-seal-link {
+    animation-delay: 0.62s;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   PHASE 5: FINAL SETTLING
+   Clean stationary state with all standard hover & interaction defaults restored.
+   -------------------------------------------------------------------------- */
+.site-header.nav-settled {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.site-header.nav-settled .brand-editorial-logo,
+.site-header.nav-settled .brand-editorial-name,
+.site-header.nav-settled .brand-editorial-sub,
+.site-header.nav-settled .nav-desktop > *,
+.site-header.nav-settled .header-hbtu-seal-link,
+.site-header.nav-settled .mobile-menu-btn {
+  opacity: 1;
+  transform: none;
+  animation: none;
+}
+
+/* --------------------------------------------------------------------------
+   ACCESSIBILITY: PREFERS-REDUCED-MOTION
+   Display immediately without motion or delay.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .site-header,
+  .site-header.nav-entrance,
+  .site-header *,
+  .site-header *::before,
+  .site-header *::after {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
